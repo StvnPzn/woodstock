@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: :show
 
+  resources :parts, only: [:create, :update]
+
   post "/pieces", to: "pieces#clone"
 end
