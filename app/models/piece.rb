@@ -4,4 +4,6 @@ class Piece < ApplicationRecord
 
   has_many :parts, dependent: :destroy
   has_many :orders
+  
+  has_one_attached :photo
 end
