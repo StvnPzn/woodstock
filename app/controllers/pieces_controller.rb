@@ -1,5 +1,5 @@
 class PiecesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :edit]
+  skip_before_action :authenticate_user!, only: [:index, :show, :edit]
 
   def index
     @pieces = Piece.joins(:category).where("categories.title ILIKE ?", "#{params[:query]}")

@@ -1,6 +1,6 @@
 <h1>Piece show</h1>
+<h2><%= @piece.category.title.capitalize %></h2>
 <%= @piece.name %>
-<%= @piece.category.title %>
 
 <%= link_to "I want that", pieces_path(id: @piece.id), method: :post %>
 
