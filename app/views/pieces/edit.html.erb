@@ -3,7 +3,17 @@
 
 <h3>some 3D oh yeah oh yeah</h3>
 
+<% if !@copy_piece.nil? %>
+  <%= @copy_piece.parts %>
+<% end %>
+
 <%= simple_form_for @part_top, url: part_path(@part_top), method: :patch do |f| %>
+  <%= f.input :shape %>
+  <%= f.input :color %>
   <%= f.input :height %>
-  <%= f.submit class: 'btn btn-secondary'%>
+  <%= f.input :width %>
+  <%= f.input :length %>
+  <%= f.input :material %>
+  <%= f.submit "valider mon objet", class: 'btn btn-flat'%>
+  <%= f.submit "enregistrer mon objet", class: 'btn btn-flat'%>
 <% end %>

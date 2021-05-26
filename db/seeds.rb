@@ -14,9 +14,9 @@ puts "done"
 puts "creating 6 categories"
 table = Category.create!(title: "table")
 chair = Category.create!(title: "chaise")
-commode = Category.create!(title: "commode")
+rack = Category.create!(title: "étagères")
 buffet = Category.create!(title: "buffet")
-bibliotheque = Category.create!(title: "bibliothèque")
+dresser = Category.create!(title: "commode")
 meuble_tv = Category.create!(title: "meuble tv")
 puts "done"
 
@@ -51,10 +51,10 @@ puts "done"
 
 puts "creating 5 objects, different from tables"
 
-commode1 = Piece.create!(name: "Marguaux", category: commode, user: steven)
+commode1 = Piece.create!(name: "Marguaux", category: dresser, user: steven)
 chair1 = Piece.create!(name: "Lizzie", category: chair, user: lisa)
 buffet1 = Piece.create!(name: "Steevy", category: buffet, user: flore)
-bibliotheque1 = Piece.create!(name: "Jane", category: bibliotheque, user: lisa)
+etagere1 = Piece.create!(name: "Jane", category: rack, user: lisa)
 meuble_tv1 = Piece.create!(name: "Marc", category: meuble_tv, user: steven)
 
 puts "done"
