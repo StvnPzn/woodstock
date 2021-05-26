@@ -2,9 +2,11 @@
 <h2><%= @piece.category.title.capitalize %></h2>
 <%= @piece.name %>
 
-<%= link_to "I want that", edit_piece_path(@piece) %>
+<%= link_to "I want that", pieces_path(id: @piece.id), method: :post %>
 
-<p>Display le detail d'un objet d'1 category</p>
 <% if @editable %>
-  <p>La piece a ete modifie</p>
+  <p>La piece a ete modifiée</p>
+
+<%= link_to "I want that", piece_orders_path(@piece), method: :post %>
+
 <% end %>
