@@ -2,9 +2,11 @@
 <%= @piece.name %>
 <%= @piece.category.title %>
 
-<%= link_to "I want that", edit_piece_path(@piece) %>
+<%= link_to "I want that", pieces_path(id: @piece.id), method: :post %>
 
-<p>euh...y'a un truc qui cloche ! la show du debut peut pas etre la meme que le recap de commande ??</p>
 <% if @editable %>
-  <p>La piece a ete modifie</p>
+  <p>La piece a ete modifiée</p>
+
+<%= link_to "I want that", piece_orders_path(@piece), method: :post %>
+
 <% end %>

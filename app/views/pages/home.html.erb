@@ -3,7 +3,7 @@
   <div class="header-container">
     <h1>WOODSTOCK</h1>
     <p>Créez le meuble de vos envies</p>
-    <%= link_to "Je me lance", "#", :class => "btn btn-flat btn-info ml-10" %>
+    <%= link_to "Je me lance", category_pieces_path(category_id: 36, piece: {name: 'test ta', category_id: 36 }), method: :post, :class => "btn btn-flat btn-info ml-10" %>
   </div>
 </div>
 
@@ -58,16 +58,16 @@
 <div class="container py-4">
   <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
-      <%= link_to "Tables", "#", class: "btn btn-ghost" %>
+      <%= link_to "Tables", pieces_path(query: "table"), class: "btn btn-ghost" %>
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
-      <%= link_to "Etagères", "#", class: "btn btn-ghost" %>
+      <%= link_to "Etagères", pieces_path(query: "étagères") , class: "btn btn-ghost" %>
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
-      <%= link_to "Commodes", "#", class: "btn btn-ghost" %>
+      <%= link_to "Commodes", pieces_path(query: "commode"), class: "btn btn-ghost" %>
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
-      <%= link_to "Meubles TV", "#", class: "btn btn-ghost" %>
+      <%= link_to "Meubles TV", pieces_path(query: "meuble tv"), class: "btn btn-ghost" %>
     </div>
   </div>
 </div>
