@@ -1,1 +1,72 @@
-// Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 180px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    asset-url("cover2.jpg");
+}
+
+.banner h1 {
+  margin-left: 100px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 64px;
+}
+
+.banner p {
+  margin-left: 100px;
+  font-size: 30px;
+  color: white;
+  opacity: 0.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-flat {
+  color: black;
+  padding: 8px 24px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+  margin-left: 100px;
+}
+
+.btn-flat:hover {
+  background: #12190f;
+  border-style: none;
+  color: white;
+}
+
+.btn-ghost {
+  color: white;
+  font-size: 24px;
+  border: 1px solid white;
+  padding: 8px 24px;
+  opacity: 0.6;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+  color: white;
+}
+
+.card-body {
+  color: gray;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}

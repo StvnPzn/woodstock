@@ -1,2 +1,74 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="banner">
+  <div class="header-container">
+    <h1>WOODSTOCK</h1>
+    <p>Créez le meuble de vos envies</p>
+    <%= link_to "Je me lance", "#", :class => "btn btn-flat btn-info ml-10" %>
+  </div>
+</div>
+
+<div class="container mt-4 py-4">
+  <div class="row">
+    <div class="col-3 d-flex align-items-stretch">
+      <div class="card rounded-0" style="width: 18rem;">
+        <div class="card-img-top text-center pt-4">
+          <%=image_tag("blueprint.svg")%>
+        </div>
+          <div class="card-body">
+            <p class="card-text text-center">Imaginez votre meuble</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-3 d-flex align-items-stretch">
+      <div class="card rounded-0" style="width: 18rem;">
+        <div class="card-img-top text-center pt-4">
+          <%=image_tag("geometry.svg")%>
+        </div>
+          <div class="card-body">
+            <p class="card-text text-center">Modélisez-le facilement</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-3 d-flex align-items-stretch">
+      <div class="card rounded-0" style="width: 18rem;">
+        <div class="card-img-top text-center pt-4">
+          <%=image_tag("settings.svg")%>
+        </div>
+          <div class="card-body">
+            <p class="card-text text-center">Un artisan produit votre création</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-3 d-flex align-items-stretch">
+      <div class="card rounded-0" style="width: 18rem;">
+        <div class="card-img-top text-center pt-4">
+          <%=image_tag("armchair.svg")%>
+        </div>
+          <div class="card-body">
+            <p class="card-text text-center">Livré directement chez vous</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-4">
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
+      <%= link_to "Tables", "#", class: "btn btn-ghost" %>
+    </div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
+      <%= link_to "Etagères", "#", class: "btn btn-ghost" %>
+    </div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
+      <%= link_to "Commodes", "#", class: "btn btn-ghost" %>
+    </div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
+      <%= link_to "Meubles TV", "#", class: "btn btn-ghost" %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+<h1>Piece edit</h1>
+<h2>Bienvenue dans votre espace de creation</h2>
+
+<h3>some 3D oh yeah oh yeah</h3>
+
+<%= simple_form_for @part_top, url: part_path(@part_top), method: :patch do |f| %>
+  <%= f.input :height %>
+  <%= f.submit class: 'btn btn-secondary'%>
+<% end %>

@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   resources :categories, only: :index do
     resources :pieces, only: :create
   end
-  resources :pieces, only: [:show, :edit, :update, :destroy] do
+  resources :pieces, only: [:index, :show, :edit, :update, :destroy] do
     resources :orders, only: :create
   end
 
   resources :orders, only: :show
+
+  resources :parts, only: [:create, :update]
 
   post "/pieces", to: "pieces#clone"
 end
