@@ -1,10 +1,10 @@
 <h1>Piece show</h1>
+<h2><%= @piece.category.title.capitalize %></h2>
 <%= @piece.name %>
-<%= @piece.category.title %>
 
 <%= link_to "I want that", edit_piece_path(@piece) %>
 
-<p>euh...y'a un truc qui cloche ! la show du debut peut pas etre la meme que le recap de commande ??</p>
+<p>Display le detail d'un objet d'1 category</p>
 <% if @editable %>
   <p>La piece a ete modifie</p>
 <% end %>
