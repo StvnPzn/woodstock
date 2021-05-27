@@ -1,0 +1,33 @@
+<h1>DASHBOARD</h1>
+<h2>Toutes mes créations</h2>
+<div class="container">
+  <div class="props-list">
+      <div class="row">
+        <% @pieces.each do |piece| %>
+          <div class="col-12">
+            <div class="user-box my-4">
+              <%# <%= cl_image_tag prop.photo.key, height: 300, width: 400, crop: :fill %>
+                <div class="user-card-info">
+                  <h2>Nom: <%= piece.name %></h2>
+                  <div class="user-card-details">
+                    <h3>Type de meuble: </i> <%= piece.category.title %></h3>
+                    <% piece.parts.each do |part|%>
+                      <p>pièces: </i> <%= part.position %>
+                      couleurs: </i> <%= part.color %>
+                      longueur: </i> <%= part.length %> cm
+                      largeur: </i> <%= part.width %> cm
+                      hauteur/épaisseur: </i> <%= part.height%> cm
+                      matériau: </i> <%= part.material%>
+                      forme: </i> <%= part.shape%></p>
+                      <% end %>
+                    <%= link_to "Supprimer", piece_path(piece), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-outline-danger btn-sm" %>
+                    <%= link_to "Modifier", edit_piece_path(piece), :class => "btn btn-outline-secondary btn-sm" %>
+                  </div>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

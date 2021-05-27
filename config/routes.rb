@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :parts, only: [:create, :update]
 
   post "/pieces", to: "pieces#clone"
+  get "/dashboard", to: 'users#index'
 end

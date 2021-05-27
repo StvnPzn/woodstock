@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :pieces
   has_many :orders
+  has_many :parts, through: :pieces
 
   enum role: { craftman: 0, client: 1 }
 end
