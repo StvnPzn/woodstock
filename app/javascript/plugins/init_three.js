@@ -1,37 +1,46 @@
 import * as THREE from 'three';
 
 const initThree = () => {
-  if ()
-  const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 100 );
-  const scene = new THREE.Scene();
+  const check = document.querySelector('.model');
+  if (check) {
+    console.log("je suis ici");
+    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    camera.position.z = 15;
+    const scene = new THREE.Scene();
 
-  createTopPart('round', 3, 3, 3, 'black');
-  const arr = []
-  for (let i = 0; i < 4; i++) {
-    let part = createBottomPart('round', 1, 1, 8, 'white');
-    arr.push(part);
+    let topPart = createTopPart('square', 3, 3, 3, 'blue');
+    console.log(topPart);
+    const arr = []
+    for (let i = 0; i < 4; i++) {
+      let part = createBottomPart('round', 1, 1, 8, 'white');
+      arr.push(part);
+    }
+    console.log(arr)
+    scene.add(topPart, arr[0], arr[1], arr[2], arr[3]);
+    console.dir(scene);
+    const renderer = new THREE.WebGLRenderer( { antialias: true } );
+    console.log(renderer);
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+    renderer.render( scene, camera );
   }
-
-  scene.add (topPart, arr[0], arr[1], arr[2], arr[3]);
-
-  const renderer = new THREE.WebGLRenderer( { antialias: true } );
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  document.body.appendChild( renderer.domElement );
-  renderer.render( scene, camera );
 }
 
 function createTopPart(shape, width, height, length, color) {
   let object = findRightShape(shape, width, height, length);
+  console.dir(object);
   let formatColor = findRightColor(color);
-  let material = new THREE.MeshBasicMaterial({color: formatcolor});
+  let material = new THREE.MeshBasicMaterial( {color: formatColor} );
+  console.dir(material);
   let topPart = new THREE.Mesh(object, material);
+  console.dir(topPart);
   return topPart;
 }
 
 function createBottomPart(shape, width, height, length, color) {
   let object = findRightShape(shape, width, height, length);
   let formatColor = findRightColor(color);
-  let material = new THREE.MeshBasicMaterial({color: formatcolor});
+  let material = new THREE.MeshBasicMaterial( {color: formatColor} );
   let BottomPart = new THREE.Mesh(object, material);
   return BottomPart;
 }
@@ -46,22 +55,28 @@ function findRightShape(shape, width, height, length) {
 
 function findRightColor(color) {
   if (color === 'black') {
-    return '0x000000'
+    const black = new THREE.Color( 0x000000 );
+    return black;
   }
   else if (color === 'white') {
-    return '0xffffff'
+    const white = new THREE.Color( 0xffffff );
+    return white;
   }
   else if (color === 'raw') {
-    return '0xcc8e56'
+    const raw = new THREE.Color( 0xcc8e56 );
+    return raw;
   }
   else if (color === 'red') {
-    return '0xff0000'
+    const red = new THREE.Color( 0xff0000 );
+    return red;
   }
   else if (color === 'blue') {
-    return '0x005cff'
+    const blue = new THREE.Color( 0x005cff );
+    return blue;
   }
   else if (color === 'grey') {
-    return '0x929292'
+    const grey = new THREE.Color( 0x929292 );
+    return grey;
   }
 }
 
