@@ -12,12 +12,12 @@
 
 
 <%= simple_form_for @part_top, url: part_path(@part_top), method: :patch do |f| %>
-  <%= f.input :shape %>
-  <%= f.input :color %>
+  <%= f.input :shape, collection: Part.shapes.keys %>
+  <%= f.input :color, collection: Part.colors.keys %>
   <%= f.input :height %>
   <%= f.input :width %>
   <%= f.input :length %>
-  <%= f.input :material %>
+  <%= f.input :material, collection: Part.materials.keys %>
   <%= f.submit "valider mon objet", class: 'btn btn-flat'%>
   <%= f.submit "enregistrer mon objet", class: 'btn btn-flat'%>
 <% end %>

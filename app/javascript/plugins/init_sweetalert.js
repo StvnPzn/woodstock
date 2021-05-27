@@ -12,7 +12,7 @@ const initSweetalert = (selector, options = {}) => {
             "Table": "Table",
             "Commode": "Commode",
             "Meuble TV": "Meuble TV",
-            "Etagere": "Etagere",
+            "Etagere": "Etagère",
             "Chaise": "Chaise",
             "Buffet": "Buffet",
           });

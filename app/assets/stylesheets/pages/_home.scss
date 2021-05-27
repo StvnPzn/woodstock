@@ -30,9 +30,8 @@
 }
 
 .btn-flat:hover {
-  background: #12190f;
-  border-style: none;
-  color: white;
+  background: rgba(254, 200, 154, 0.3);
+  color: black;
 }
 
 .btn-ghost {
@@ -41,7 +40,7 @@
   border: 1px solid white;
   padding: 8px 24px;
   opacity: 0.6;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s ease;
 }
 
@@ -68,5 +67,5 @@
   justify-content: center;
   align-items: center;
   color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
