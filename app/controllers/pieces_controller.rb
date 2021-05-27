@@ -37,6 +37,7 @@ class PiecesController < ApplicationController
   def destroy
     @piece = Piece.find(params[:id])
     @piece.destroy
+    redirect_to dashboard_path
   end
 
   def clone

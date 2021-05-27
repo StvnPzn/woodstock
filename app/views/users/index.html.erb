@@ -20,7 +20,7 @@
                       matériau: </i> <%= part.material%>
                       forme: </i> <%= part.shape%></p>
                       <% end %>
-                    <%= link_to "Supprimer", piece_path(piece), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-outline-danger btn-sm" %>
+                    <%= link_to "Supprimer", piece_path(piece), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer ce meuble ?" }, :class => "btn btn-outline-danger btn-sm" %>
                     <%= link_to "Modifier", edit_piece_path(piece), :class => "btn btn-outline-secondary btn-sm" %>
                   </div>
                 </div>
