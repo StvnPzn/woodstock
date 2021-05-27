@@ -6,7 +6,7 @@ class PiecesController < ApplicationController
   end
 
   def show
-    @piece = Piece.find(params[:piece_id])
+    @piece = Piece.find(params[:id])
     @editable = !params['editable'].nil?
   end
 

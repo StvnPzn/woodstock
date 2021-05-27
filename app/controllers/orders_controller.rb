@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  # ligne ci-dessous a enlever !!!!!!!!!!!!!!!
+  # ligne ci-dessous a enlever !!!!!!!!!!!!!!! ONLY FOR TESTS PURPOSES
   skip_before_action :authenticate_user!, only: :show
   # ligne ci-dessus a enlever !!!!!!!!!!!!!!!
 
