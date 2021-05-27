@@ -6,7 +6,7 @@ class PiecesController < ApplicationController
   end
 
   def show
-    @piece = Piece.find(params[:piece_id])
+    @piece = Piece.find(params[:id])
     @editable = !params['editable'].nil?
   end
 
@@ -14,7 +14,7 @@ class PiecesController < ApplicationController
     @piece = Piece.new(piece_params)
     @user = current_user
     @piece.user = @user
-    @category = Category.find(params[:category_id])
+    @category = Category.find(params[:category_id]) #Faire le lien entre piece et category grâce à la modal (cf: methode de l'index)
     @piece.category = @category
     if @piece.save
       redirect_to edit_piece_path(@piece)
