@@ -11,4 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/form"
+@import "components/form";
+
+@import "sweetalert2/src/sweetalert2.scss";
+
+//TEST A BIEN RANGER
+.swal2-radio {
+  display: grid !important;
+  text-align: left !important;
+}

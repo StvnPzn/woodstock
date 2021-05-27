@@ -3,7 +3,11 @@
   <div class="header-container">
     <h1>WOODSTOCK</h1>
     <p>Créez le meuble de vos envies</p>
-    <%= link_to "Je me lance", "#", :class => "btn btn-flat btn-info ml-10" %>
+
+    <%= link_to "Je me lance", category_pieces_path(category_id: 36, piece: {name: 'test ta', category_id: 36 }), method: :post, :class => "btn btn-flat btn-info ml-10 sweet-alert" %>
+
+    <%= link_to "Je me lance", "#", :class => "btn btn-flat btn-info ml-10 sweet-alert" %>
+    
   </div>
 </div>
 
@@ -57,17 +61,18 @@
 
 <div class="container py-4">
   <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
-      <%= link_to "Tables", "#", class: "btn btn-ghost" %>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://static.turbosquid.com/Preview/2019/03/19__04_10_54/industrial_table_00.jpg5B321C05-F279-48C2-AFEE-5F9E0EE4BB76Zoom.jpg)">
+      <%= link_to "Tables", pieces_path(query: "table"), class: "btn btn-ghost" %>
     </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
-      <%= link_to "Etagères", "#", class: "btn btn-ghost" %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://media.madeindesign.com/nuxeo/products/c/a/bibliotheque-mikado-large-rouge_madeindesign_74145_original.jpg)">
+      <%= link_to "Etagères", pieces_path(query: "étagères") , class: "btn btn-ghost" %>
     </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
-      <%= link_to "Commodes", "#", class: "btn btn-ghost" %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://cdn.conforama.fr/prod/product/image/38d2/G_CNF_I52807871_B.jpeg)">
+      <%= link_to "Commodes", pieces_path(query: "commode"), class: "btn btn-ghost" %>
     </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random)">
-      <%= link_to "Meubles TV", "#", class: "btn btn-ghost" %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://www.made-in-meubles.com/media/catalog/product/optimized/2/e/2ea75696a4d7e9b6182055f87ecaaffc/bt0200a-meubletv-dessus.jpg">
+      <%= link_to "Meubles TV", pieces_path(query: "meuble tv"), class: "btn btn-ghost" %>
     </div>
   </div>
 </div>
