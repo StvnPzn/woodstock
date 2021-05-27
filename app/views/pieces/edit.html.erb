@@ -3,9 +3,13 @@
 
 <h3>some 3D oh yeah oh yeah</h3>
 
+
+<div class="model">3D ici</div>
+
 <% if !@copy_piece.nil? %>
   <%= @copy_piece.parts %>
 <% end %>
+
 
 <%= simple_form_for @part_top, url: part_path(@part_top), method: :patch do |f| %>
   <%= f.input :shape, collection: Part.shapes.keys %>
