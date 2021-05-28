@@ -1,8 +1,34 @@
-<h1>Piece show</h1>
-<h2><%= @piece.category.title.capitalize %></h2>
-<%= @piece.name %>
+<div class="container">
+  <div class="row row-big-card">
+    <div class="cont">
+      <a href="#" class="card-link">    
+        <div class="card-img">
+          <%= cl_image_tag @piece.photo.key, class: "card-img-top"%>
+        </div>
+        <div class="card-inner">
+          <h3><%= @piece.category.title.capitalize %></h3> 
+          <h4><%= @piece.name.capitalize %></h4>
+          <div class="inner-text">
+            <p><% @piece.parts.each do |part|%>
+              pièces: <%= part.position %>
+              couleurs: <%= part.color %>
+              longueur: <%= part.length %> cm
+              largeur: <%= part.width %> cm
+              hauteur/épaisseur: <%= part.height%> cm
+              matériau: <%= part.material%>
+              forme: <%= part.shape%>
+              <% end %></p>
+            </div>
+            <span class="cta-card"><%= link_to "I want that", pieces_path(id: @piece.id), method: :post %></span>
+          </div>
+      </a>
+    </div>   
+  </div>
+</div>
 
-<%= link_to "I want that", pieces_path(id: @piece.id), method: :post %>
+
+
+
 
 <% if @editable %>
   <p>La piece a ete modifiée</p>
