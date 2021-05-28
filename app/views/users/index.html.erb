@@ -10,15 +10,15 @@
                 <div class="user-card-info">
                   <h2>Nom: <%= piece.name %></h2>
                   <div class="user-card-details">
-                    <h3>Type de meuble: </i> <%= piece.category.title %></h3>
+                    <h3>Type de meuble: <%= piece.category.title %></h3>
                     <% piece.parts.each do |part|%>
-                      <p>pièces: </i> <%= part.position %>
-                      couleurs: </i> <%= part.color %>
-                      longueur: </i> <%= part.length %> cm
-                      largeur: </i> <%= part.width %> cm
-                      hauteur/épaisseur: </i> <%= part.height%> cm
-                      matériau: </i> <%= part.material%>
-                      forme: </i> <%= part.shape%></p>
+                      <p>pièces: <%= part.position %>
+                      couleurs: <%= part.color %>
+                      longueur: <%= part.length %> cm
+                      largeur: <%= part.width %> cm
+                      hauteur/épaisseur: <%= part.height%> cm
+                      matériau: <%= part.material%>
+                      forme: <%= part.shape%></p>
                       <% end %>
                     <%= link_to "Supprimer", piece_path(piece), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer ce meuble ?" }, :class => "btn btn-outline-danger btn-sm" %>
                     <%= link_to "Modifier", edit_piece_path(piece), :class => "btn btn-outline-secondary btn-sm" %>
