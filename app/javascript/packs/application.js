@@ -22,8 +22,8 @@ require("channels");
 
 // External imports
 import { navBar } from "../components/nav_bar";
-import { initSweetalert } from "../plugins/init_sweetalert";
-import "sweetalert2/src/sweetalert2.scss";
+// import { initSweetalert } from "../plugins/init_sweetalert";
+// import "sweetalert2/src/sweetalert2.scss";
 import "bootstrap";
 
 // Internal imports, e.g:
@@ -35,5 +35,5 @@ document.addEventListener("turbolinks:load", () => {
   // initSelect2();
   initThree();
   navBar();
-  initSweetalert();
+  // initSweetalert();
 });
