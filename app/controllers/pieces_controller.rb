@@ -31,6 +31,10 @@ class PiecesController < ApplicationController
 
   def update
     @piece = Piece.find(params[:id])
+    @part_top = @piece.parts.find_by(position: 0)
+    @part_bottom = @piece.parts.find_by(position: 1)
+    @part_top = @part_top.update
+    @part_bottom = @part_bottom.update
     @piece.update(piece_params)
   end
 

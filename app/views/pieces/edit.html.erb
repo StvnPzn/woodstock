@@ -10,14 +10,24 @@
   <%= @copy_piece.parts %>
 <% end %>
 
-
+<h4>Caractéristiques du plateau</h4>
 <%= simple_form_for @part_top, url: part_path(@part_top), method: :patch do |f| %>
-  <%= f.input :shape, collection: Part.shapes.keys %>
-  <%= f.input :color, collection: Part.colors.keys %>
-  <%= f.input :height %>
-  <%= f.input :width %>
-  <%= f.input :length %>
-  <%= f.input :material, collection: Part.materials.keys %>
-  <%= f.submit "valider mon objet", class: 'btn btn-flat'%>
-  <%= f.submit "enregistrer mon objet", class: 'btn btn-flat'%>
+  <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-top"} %>
+  <%= f.input :color, collection: Part.colors.keys, input_html: {class: "color-top"} %>
+  <%= f.input :height, input_html: {class: "height-top"} %>
+  <%= f.input :width, input_html: {class: "width-top"} %>
+  <%= f.input :length, input_html: {class: "length-top"} %>
+  <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-top"} %>
+<% end %>
+
+<h4>Caractéristiques des pieds</h4>
+<%= simple_form_for @part_bottom, url: part_path(@part_bottom), method: :patch do |f| %>
+  <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-bottom"} %>
+  <%= f.input :color, collection: Part.colors.keys, input_html: {class: "color-bottom"} %>
+  <%= f.input :height, input_html: {class: "height-bottom"} %>
+  <%= f.input :width, input_html: {class: "width-bottom"} %>
+  <%= f.input :length, input_html: {class: "length-bottom"} %>
+  <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-bottom"} %>
+  <%= f.submit "valider mon objet", input_html: {class: 'btn btn-flat'}%>
+  <%= f.submit "enregistrer mon objet", input_html: {class: 'btn btn-flat'}%>
 <% end %>

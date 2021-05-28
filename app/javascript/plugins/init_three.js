@@ -2,21 +2,23 @@ import * as THREE from 'three';
 
 const initThree = () => {
   const check = document.querySelector('.model');
+
   if (check) {
     console.log("je suis ici");
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
     camera.position.z = 15;
     const scene = new THREE.Scene();
-
-    let topPart = createTopPart('square', 10, 1, 10, 'raw');
+    // x, y, z
+    let topPart = createTopPart('square', 10, 1, 10, 'blue');
     console.log(topPart);
     const arr = []
     for (let i = 0; i < 4; i++) {
-      let part = createBottomPart('round', 0.5, 0.5, 7, 'raw');
+      // rayon du haut, rayon du bas, hauteur
+      let part = createBottomPart('round', 1, 1, 6, 'white');
       arr.push(part);
     }
     console.log(arr);
-    let positions = Position(10, 1, 10);
+    let positions = Position(10, 1, 10, 6);
     arr.forEach((bottom, index) => {
       bottom.position.x = positions[index].x
       bottom.position.y = positions[index].y
@@ -51,7 +53,9 @@ function animation( time, group, renderer, scene, camera ) {
   // objectsBottom.forEach(el => {
   //   el.rotation.y = time / 5000;
   // })
-  // group.rotation.y = time / 1000;
+  group.rotation.y = time / 5000;
+  group.rotation.z = time / 5000;
+  group.rotation.x = time / 5000;
   renderer.render( scene, camera );
 }
 
@@ -109,14 +113,89 @@ function findRightColor(color) {
     return grey;
   }
 }
-
-function Position(width, length, height) {
-  const a = new THREE.Vector3( (( width / 2 )), -(height / 2) + (height /10), ((length / 2) ) );
-  const b = new THREE.Vector3( (width / 2), -(height / 2) + (height /10), - ( (length / 2) ) );
-  const c = new THREE.Vector3(-(width / 2), -(height / 2) + (height /10), - ((length / 2) ) );
-  const d = new THREE.Vector3(-(width / 2), -(height / 2) + (height /10), (length / 2)  );
+// x, y, z
+function Position(width, length, height, h) {
+  const a = new THREE.Vector3( (width / 2) - (width /10),  - h/2  - length/2,  (height / 2) - (height /10));
+  const b = new THREE.Vector3( (width / 2) - (width /10),  - h/2  - length/2, -(height / 2) + (height /10));
+  const c = new THREE.Vector3(-(width / 2) + (width /10),  - h/2  - length/2, -(height / 2) + (height /10));
+  const d = new THREE.Vector3(-(width / 2) + (width /10),  - h/2  - length/2,  (height / 2) - (height /10));
+  // const a = new THREE.Vector3( (( width / 2 )), -(height / 2) + (height /10), ((length / 2) ) );
+  // const b = new THREE.Vector3( (width / 2), -(height / 2) + (height /10), - ( (length / 2) ) );
+  // const c = new THREE.Vector3(-(width / 2), -(height / 2) + (height /10), - ((length / 2) ) );
+  // const d = new THREE.Vector3(-(width / 2), -(height / 2) + (height /10), (length / 2)  );
   return [a, b, c, d]
 };
+
+
+const getShapeTop = () => {
+  let shapeTop = document.querySelector('.shape-top')
+  shapeTop.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getWidthTop = () => {
+  let widthTop = document.querySelector('.width-top')
+  widthTop.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getLengthTop = () => {
+  let lengthTop = document.querySelector('.length-top')
+  lengthTop.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getHeightTop = () => {
+  let heightTop = document.querySelector('.height-top')
+  heightTop.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getMaterialTop = () => {
+  let materialTop = document.querySelector('.material-top')
+  materialTop.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getShapeBottom = () => {
+  let shapeBottom = document.querySelector('.shape-bottom')
+  shapeBottom.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getWidthBottom = () => {
+  let widthBottom = document.querySelector('.width-bottom')
+  widthBottom.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getLengthBottom = () => {
+  let lengthBottom = document.querySelector('.length-bottom')
+  lengthBottom.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getHeightBottom = () => {
+  let heightBottom = document.querySelector('.height-bottom')
+  heightBottom.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
+
+const getMaterialBottom = () => {
+  let materialBottom = document.querySelector('.material-bottom')
+  materialBottom.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+  });
+}
 
 
 
