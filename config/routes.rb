@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :views
   devise_for :users
   root to: 'pages#home'
   resources :categories, only: :index do
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   resources :parts, only: [:create, :update]
 
   post "/pieces", to: "pieces#clone"
+  get "/dashboard", to: 'users#index'
 end

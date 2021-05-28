@@ -4,6 +4,18 @@
       <div class="form-sign-up">
         <h2 class="mt-4">Créer son compte</h2>
 
+        <%# <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%# <%= render "devise/shared/error_messages", resource: resource %>
+          <%# <div class="field">
+            <div class="gravatar_edit">
+                <%= f.file_field :avatar,
+                placeholder: 'Upload picture',
+                id: "change-img-field",
+                direct_upload: true%>
+            <%# </div>
+          </div>
+        <% end %>
+
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
