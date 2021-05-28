@@ -11,7 +11,7 @@ class PiecesController < ApplicationController
   end
 
   def create
-    @piece = Piece.new(piece_params)
+    @piece = Piece.new(name: "Votre objet #{current_user.pieces.count}")
     @user = current_user
     @piece.user = @user
     @category = Category.find(params[:category_id]) #Faire le lien entre piece et category grâce à la modal (cf: methode de l'index)
@@ -47,11 +47,4 @@ class PiecesController < ApplicationController
     @part_bottom = @copy_piece.parts.find_by(position: 1)
     render :edit
   end
-
-  private
-
-  def piece_params
-    params.require(:piece).permit(:name, :category, :user_id, :photo, :validated)
-  end
-
 end
