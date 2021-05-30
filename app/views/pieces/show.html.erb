@@ -1,27 +1,26 @@
 <div class="container">
-  <div class="row row-big-card">
-            <div class="cont-all">
-                      <div class="card-img">
-                            <%= cl_image_tag @piece.photo.key, class: "card-img-top zoom"%>
-                      </div>
-                      <div class="card-inner">
-                      <h3><%= @piece.category.title.capitalize %></h3> 
-                      <h4><%= @piece.name.capitalize %></h4>
-                                <div class="inner-text"></div>
-                                  <p><% @piece.parts.each do |part|%>
-                                    pièces: <%= part.position %>
-                                    couleurs: <%= part.color %>
-                                    longueur: <%= part.length %> cm
-                                    largeur: <%= part.width %> cm
-                                    hauteur/épaisseur: <%= part.height%> cm
-                                    matériau: <%= part.material%>
-                                    forme: <%= part.shape%>
-                                    <% end %></p>
-                                  
-                        <button class = "btn btn-primary"><%= link_to "I want that", pieces_path(id: @piece.id), method: :post %></button>
-                        </div>
-            </div>   
-  </div>
+  
+    <div class="cont-all">
+      <div class="card-img-show">
+        <%= cl_image_tag @piece.photo.key, :width=>480, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+      </div>
+      <div class="card-inner">
+        <h3><%= @piece.category.title.capitalize %></h3> 
+        <h4><%= @piece.name.capitalize %></h4>
+          <div class="inner-text"></div>
+          <p><% @piece.parts.each do |part|%>
+            pièces: <%= part.position %>
+            couleurs: <%= part.color %>
+            longueur: <%= part.length %> cm
+            largeur: <%= part.width %> cm
+            hauteur/épaisseur: <%= part.height%> cm
+            matériau: <%= part.material%>
+            forme: <%= part.shape%>
+            <% end %></p>          
+        <button class = "btn btn-primary"><%= link_to "I want that", pieces_path(id: @piece.id), method: :post %></button>
+      </div>
+    </div>   
+  
 </div>
         
     

@@ -38,7 +38,7 @@ top_table2 = Part.create!(color: 4, height: 8, width: 60, length: 100, material:
 botttom_table2 = Part.create!(color: 1, height: 100, width: 60, length: 0, material: 5, shape: 1, position: 1, piece: table2)
 
 table3 = Piece.create!(name: "Jack", user: lisa, category: table)
-file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71xhMu-ehSL._AC_SY450_.jpg")
+file = URI.open("https://ruma-home.com/wp-content/uploads/2018/08/riva-round-table-front.jpg")
 table3.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 
 top_table3 = Part.create!(color: 1, height: 6, width: 60, length: 120, material: 2, shape: 1, position: 0, piece: table3)
