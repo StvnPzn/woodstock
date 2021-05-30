@@ -1,9 +1,9 @@
 const navBar = () => {
   $(window).scroll(function () {
-    if ($(window).scrollTop() > 10) {
-      $(".bg").addClass("show");
+    if ($(window).scrollTop() > 80) {
+      $("#test").addClass("show");
     } else {
-      $(".bg").removeClass("show");
+      $("#test").removeClass("show");
     }
   });
 };
