@@ -13,6 +13,7 @@ const initThree = () => {
     );
     camera.position.z = 15;
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x8f8e8e);
 
     // x, y, z
     let topPart = createTopPart("square", 10, 1, 10, "blue");
@@ -50,7 +51,7 @@ const initThree = () => {
     function render(time) {
       time *= 0.0007; // convertis le temps en secondes
 
-      group.rotation.x = time;
+      // group.rotation.x = time;
       group.rotation.y = time;
 
       renderer.render(scene, camera);
@@ -66,7 +67,6 @@ function createTopPart(shape, width, height, length, color) {
   console.dir(object);
   let formatColor = findRightColor(color);
   let material = new THREE.MeshBasicMaterial({ color: formatColor });
-  console.dir(material);
   let topPart = new THREE.Mesh(object, material);
   console.dir(topPart);
   return topPart;
