@@ -21,28 +21,24 @@
   margin: 0;
 }
 
-.form-edit select {
-border-radius: 2px;
-border-color: grey;
-}
+// BELOW IS THE CODE FOR THE PIECES#EDIT PAGE FORM
 
-.form-edit input {
-border-radius: 2px;
-}
-
-.form-edit {
-  .btn-flat {
-    margin: 0;
-  }
-}
 .form-edit {
   background-color: white;
   padding: 25px;
   border-radius: 4px;
 }
 
-.simple_form label {
-  display: inline;
+.form-edit select {
+  border-radius: 2px;
+  border-color: rgb(235,235,235);
+}
+
+.form-edit {
+  .form-control {
+    border-radius: 2px;
+    border-color: rgb(235,235,235);
+  }
 }
 
 .form-edit {
@@ -54,3 +50,47 @@ border-radius: 2px;
 .input-form-edit {
   margin-bottom: 1em;
 }
+
+.form-edit {
+  .btn-flat {
+    margin: 0;
+    background: rgba(254, 200, 154, 0.3);
+    color: black;
+    border-radius: 9999em;
+    border-color: none;
+  }
+}
+
+.validation {
+  .btn-flat {
+    background: #fec89a;
+  }
+}
+
+.form-name {
+  background-color: white;
+  padding: 25px;
+  border-radius: 4px;
+}
+
+.form-name {
+  .form-control {
+    border-radius: 2px;
+    border-color: rgb(235,235,235);
+  }
+}
+
+.form-name {
+  .btn-flat {
+    margin: 0;
+    background: rgba(254, 200, 154, 0.3);
+    color: black;
+    border-radius: 9999em;
+  }
+}
+
+
+
+
+
+
