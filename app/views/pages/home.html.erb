@@ -1,37 +1,7 @@
-
-<div class="banner">
-  <div class="header-container">
-    <h1>WOODSTOCK</h1>
-    <p>Créez le meuble de vos envies</p>
-
-    <%# <%= link_to "Je me lance", category_pieces_path(category_id: 36, piece: {name: 'test ta', category_id: 36 }), method: :post, :class => "btn btn-flat btn-info ml-10 sweet-alert" %>
-
-    <button type="button" class="btn btn-flat btn-info ml-10" data-bs-toggle="modal" data-bs-target="#categoryModal">
-      Je me lance !
-    </button>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Choisissez une catégorie :</h5>
-      </div>
-      <div class="modal-body d-flex justify-content-center">
-        <div class="row">
-          <% @categories.each do |category| %>
-            <div class="col-4 mb-3 d-flex justify-content-center">
-              <%= link_to category.title, category_pieces_path(category), method: :post, :class => "checklist px-3 py-1" %>
-            </div>
-          <% end -%>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+ <% content_for :navbar do %>
+      <%= render 'shared/navbar_home' %>
+ <% end %>
+<%= render 'shared/banner' %>
 
 <div class="container mt-4 py-4">
   <div class="row">

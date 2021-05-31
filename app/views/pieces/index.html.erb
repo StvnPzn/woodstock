@@ -5,12 +5,10 @@
       <% @pieces.each do |piece| %>
         <div class="col-6">
           <% if piece.photo.attached? %>
-            <div class="card card-index my-5" style="width: 20rem;">
-              <%= cl_image_tag piece.photo.key, class: "card-img-top"%>
-              <div class="card-body">
-                <h5 class="card-title"><%= piece.name%></h5>
-                <p class="card-text">Lalala some content for demo day.</p>
-                <%= link_to "Voir le détail", piece_path(piece), class: "btn btn-primary"%>
+            <div class="card card-index my-5 team__link" style="width: 20rem;">
+              <%= cl_image_tag piece.photo.key, class: "card-img-top", :width=>360, :height=>250, :crop=>"fill" %>
+              <div class="card-body team__text">
+                <h5 class="team__title"><%= link_to "#{piece.name}", piece_path(piece), class:"effect-underline"%></h5>
               </div>
             </div>
           <% end %>
@@ -19,9 +17,6 @@
     </div>
   </div>
 </div>
-      
-
-
   
 
  

@@ -8,3 +8,57 @@
   float: none;
   margin-bottom: 10px;
 }
+
+.team__title {
+  text-align: center;
+}
+
+.team__link:after {
+  content: "";
+  position: absolute;
+  background-clip: padding-box;
+  box-shadow: 0 2px 50px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.team__link {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transform: translate3d(0, 0, 0);
+  transition: all 1s ease;
+}
+.team__link:hover {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 47px rgba(0, 0, 0, 0.1);
+  transform: translate3d(0, -0.5em, 0);
+}
+
+a.effect-underline:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  justify-content: center;
+  display: inline-block;
+  height: 1em;
+  width: 100%;
+  border-bottom: 2px solid;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.35s, transform 0.35s;
+  transform: scale(0, 1);
+}
+
+a.effect-underline:hover:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.card-body {
+  padding: 15px;
+}
