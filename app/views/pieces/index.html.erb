@@ -1,26 +1,24 @@
-<div class=" pt-5 text-center border-bottom pt-5 border-top py-5 bg-white">
+<div class="text-center border-bottom border-top py-5 bg-white">
   <h2>Découvrez nos créations</h2>
 </div>
 <div class="container pt-2 text-center">
-  <div class="card-group">
-    <div class="row">
-      <% @pieces.each do |piece| %>
-        <div class="col-4">
-          <% if piece.photo.attached? %>
-            <div class="card card-index my-5 team__link" style="width: 20rem;">
-              <%= cl_image_tag piece.photo.key, class: "card-img-top", :width=>360, :height=>250, :crop=>"fill" %>
-              <div class="card-body team__text">
-                <h5 class="team__title"><%= link_to "#{piece.name}", piece_path(piece), class:"effect-underline"%></h5>
-                <p class="text-center pt-2"> <%= piece.description %></p>
+  <div class="pieces-index">
+    <div class="card-group">
+      <div class="row">
+        <% @pieces.each do |piece| %>
+          <div class="col-4">
+            <% if piece.photo.attached? %>
+              <div class="card card-index my-5 team__link" style="width: 20rem;">
+                <%= cl_image_tag piece.photo.key, class: "card-img-top", :width=>360, :height=>250, :crop=>"fill" %>
+                <div class="card-body team__text">
+                  <h5 class="team__title"><%= link_to "#{piece.name}", piece_path(piece), class:"effect-underline"%></h5>
+                  <p class="text-center pt-2"> <%= piece.description %></p>
+                </div>
               </div>
-            </div>
-          <% end %>
-        </div>
-      <% end%>
+            <% end %>
+          </div>
+        <% end%>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-

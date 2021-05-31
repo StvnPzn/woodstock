@@ -21,3 +21,36 @@
   margin: 0;
 }
 
+.form-edit select {
+border-radius: 2px;
+border-color: grey;
+}
+
+.form-edit input {
+border-radius: 2px;
+}
+
+.form-edit {
+  .btn-flat {
+    margin: 0;
+  }
+}
+.form-edit {
+  background-color: white;
+  padding: 25px;
+  border-radius: 4px;
+}
+
+.simple_form label {
+  display: inline;
+}
+
+.form-edit {
+  .form-group {
+    margin: 0;
+    }
+}
+
+.input-form-edit {
+  margin-bottom: 1em;
+}
