@@ -7,6 +7,8 @@ class PiecesController < ApplicationController
 
   def show
     @piece = Piece.find(params[:id])
+    @top = @piece.parts.find_by_position(0)
+    @bottom = @piece.parts.find_by_position(1)
     @editable = !params['editable'].nil?
   end
 
@@ -17,6 +19,7 @@ class PiecesController < ApplicationController
     @category = Category.find(params[:category_id]) #Faire le lien entre piece et category grâce à la modal (cf: methode de l'index)
     @piece.category = @category
     if @piece.save
+      @piece.create_parts
       redirect_to edit_piece_path(@piece)
     else
       render :index
@@ -31,11 +34,11 @@ class PiecesController < ApplicationController
 
   def update
     @piece = Piece.find(params[:id])
-    @part_top = @piece.parts.find_by(position: 0)
-    @part_bottom = @piece.parts.find_by(position: 1)
-    @part_top = @part_top.update
-    @part_bottom = @part_bottom.update
-    @piece.update(piece_params)
+    # @part_top = @piece.parts.find_by(position: 0)
+    # @part_bottom = @piece.parts.find_by(position: 1)
+    # @part_top = @part_top.update
+    # @part_bottom = @part_bottom.update
+    redirect_to piece_path(@piece, editable: true)
   end
 
   def destroy
