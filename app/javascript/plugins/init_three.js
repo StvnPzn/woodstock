@@ -59,24 +59,50 @@ const initThree = () => {
 
 function createTopPart(shape, width, height, length, color) {
   let object = findRightShape(shape, width, height, length);
-  console.dir(object);
-  let formatColor = findRightColor(color);
-  const texture = new THREE.TextureLoader().load(
-    "https://media.istockphoto.com/photos/wood-texture-background-wood-planks-horizontal-picture-id629075150?k=6&m=629075150&s=170667a&w=0&h=LNqNh6HMwSY0VdTpKLLQKOszhtTw6NYEO0Z3c3y0qHU="
-  );
-  // texture.wrapS = THREE.RepeatWrapping;
-  // texture.wrapT = THREE.RepeatWrapping;
-  // texture.repeat.set(4, 4);
+  let texture = findRightColor(color);
   let material = new THREE.MeshBasicMaterial({ map: texture });
   let topPart = new THREE.Mesh(object, material);
-  console.dir(topPart);
   return topPart;
+}
+
+function findRightColor(color) {
+  if (color === "raw") {
+    const raw = new THREE.TextureLoader().load(
+      "https://media.istockphoto.com/photos/wood-texture-background-wood-planks-horizontal-picture-id629075150?k=6&m=629075150&s=170667a&w=0&h=LNqNh6HMwSY0VdTpKLLQKOszhtTw6NYEO0Z3c3y0qHU="
+    );
+    return raw;
+  } else if (color === "white") {
+    const white = new THREE.TextureLoader().load(
+      "https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/cab63d04-0e41-4830-aef5-5cbecbbc897d"
+    );
+    return white;
+  } else if (color === "black") {
+    const black = new THREE.TextureLoader().load(
+      "https://images.assetsdelivery.com/compings_v2/prapann/prapann1603/prapann160300128.jpg"
+    );
+    return black;
+  } else if (color === "red") {
+    const red = new THREE.TextureLoader().load(
+      "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d14f6b02-c364-40bb-9326-2574d5ae03fd/d8pdsmf-4e9b1bba-0fae-4258-921d-7e1d863ef47d.jpg/v1/fill/w_800,h_534,q_75,strp/red_wood_texture_by_ricksekhon_d8pdsmf-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTM0IiwicGF0aCI6IlwvZlwvZDE0ZjZiMDItYzM2NC00MGJiLTkzMjYtMjU3NGQ1YWUwM2ZkXC9kOHBkc21mLTRlOWIxYmJhLTBmYWUtNDI1OC05MjFkLTdlMWQ4NjNlZjQ3ZC5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.dcrvmxlLBYhalaIIkWlciobWQUiTsLksiNs4_gc-TAo"
+    );
+    return red;
+  } else if (color === "blue") {
+    const blue = new THREE.TextureLoader().load(
+      "https://live.staticflickr.com/5745/23214992144_d929d39eed_b.jpg"
+    );
+    return blue;
+  } else if (color === "grey") {
+    const grey = new THREE.TextureLoader().load(
+      "https://media.istockphoto.com/photos/shiny-steel-texture-picture-id636123406?k=6&m=636123406&s=170667a&w=0&h=-MMubUSwPoFI85ha7lF7_JKfbmwTEM1fQNdYhY_ViMw="
+    );
+    return grey;
+  }
 }
 
 function createBottomPart(shape, width, height, length, color) {
   let object = findRightShape(shape, width, height, length);
-  let formatColor = findRightColor(color);
-  let material = new THREE.MeshBasicMaterial({ color: formatColor });
+  let texture = findRightColor(color);
+  let material = new THREE.MeshBasicMaterial({ map: texture });
   let bottomPart = new THREE.Mesh(object, material);
   // BottomPart.position = position(width, length, height);
   return bottomPart;
@@ -90,27 +116,6 @@ function findRightShape(shape, width, height, length) {
   }
 }
 
-function findRightColor(color) {
-  if (color === "black") {
-    const black = new THREE.Color(0x000000);
-    return black;
-  } else if (color === "white") {
-    const white = new THREE.Color(0xffffff);
-    return white;
-  } else if (color === "raw") {
-    const raw = new THREE.Color(0xcc8e56);
-    return raw;
-  } else if (color === "red") {
-    const red = new THREE.Color(0xff0000);
-    return red;
-  } else if (color === "blue") {
-    const blue = new THREE.Color(0x005cff);
-    return blue;
-  } else if (color === "grey") {
-    const grey = new THREE.Color(0x929292);
-    return grey;
-  }
-}
 // x, y, z
 function Position(width, length, height, h) {
   const a = new THREE.Vector3(
