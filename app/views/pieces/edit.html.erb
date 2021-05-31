@@ -18,6 +18,7 @@
   <%= f.input :width, input_html: {class: "width-top"} %>
   <%= f.input :length, input_html: {class: "length-top"} %>
   <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-top"} %>
+  <%= f.submit "enregistrer mon objet", input_html: {class: 'btn btn-flat'}%>
 <% end %>
 
 <h4>Caractéristiques des pieds</h4>
@@ -28,6 +29,11 @@
   <%= f.input :width, input_html: {class: "width-bottom"} %>
   <%= f.input :length, input_html: {class: "length-bottom"} %>
   <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-bottom"} %>
-  <%= f.submit "valider mon objet", input_html: {class: 'btn btn-flat'}%>
   <%= f.submit "enregistrer mon objet", input_html: {class: 'btn btn-flat'}%>
+<% end %>
+
+<%#= link_to "Valider mon objet", piece_path(@piece), :class => "btn btn-flat"  %>
+
+<%= simple_form_for @piece do |f| %>
+  <%= f.button :submit, class: "btn btn-flat" %>
 <% end %>

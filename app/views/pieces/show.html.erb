@@ -4,7 +4,9 @@
   
     <div class="cont-all mt-3 d-flex justify-content-between">
       <div class="card-img-show">
-        <%= cl_image_tag @piece.photo.key, :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+        <% if @piece.photo.attached? %>
+          <%= cl_image_tag @piece.photo.key, :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+        <% end %>
       </div>
       <div class="card-inner pl-3 mx-5">
         <h2 class="pb-2"><%= @piece.name.capitalize %></h2>
@@ -29,14 +31,25 @@
             <button class = "btn btn-primary px-4"><%= link_to "Partir de ce modèle", pieces_path(id: @piece.id), method: :post %></button>
           </div>
       </div>
-    </div>   
-  
-</div>
+    </div>
 
 
 <% if @editable %>
-  <p>La piece a ete modifiée</p>
-
-<%= link_to "I want that", piece_orders_path(@piece), method: :post %>
-
+  <div class="d-flex justify-content-between">
+    <div class="detail-card mt-3">
+      <p>Toutes les infos de l'artisan assigné</p>
+    </div>
+    <div class="detail-card mt-3 d-flex flex-column justify-content-around align-items-center">
+        <p>Le prix estimé de votre objet est de : 350€*</p>
+        <div class="d-flex">
+          <%= link_to "Achat", piece_path, :class => "btn btn-primary mr-3" %>
+          <%= link_to "Annuler", piece_path, :class => "btn btn-primary ml-3" %>
+        </div>
+    </div>
+  </div>
 <% end %>
+
+
+
+</div>
+
