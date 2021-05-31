@@ -1,39 +1,111 @@
-<h1>Piece edit</h1>
-<h2>Bienvenue dans votre espace de creation</h2>
+<div class="text-center border-bottom border-top py-5 bg-white">
+  <h2>Mon espace de création</h2>
+</div>
 
-<h3>some 3D oh yeah oh yeah</h3>
+<div class="container">
+
+  <% if !@copy_piece.nil? %>
+    <%= @copy_piece.parts %>
+  <% end %>
+
+  <div class="row">
+      <div class="model col-6">
+      </div>
+
+    <div class="col-6 pt-5">
+      <h4>Plateau</h4>
+      <div class="form-edit mt-3 mb-3">
+        <%= simple_form_for @part_top, url: part_path(@part_top), method: :patch do |f| %>
+
+          <div class="d-flex align-items-center w-100 input-form-edit">
+
+            <div class="pr-5">Forme</div>
+            <div class="w-100">
+              <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-top"}, label: false %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center w-100 input-form-edit">
+          <div class="pr-5">Matière</div>
+            <div class="w-100">
+              <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-top"}, label: false %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center w-100 input-form-edit">
+            <div class="pr-5">Couleur</div>
+              <div class="w-100">
+                <%= f.input :color, collection: Part.colors.keys, input_html: {class: "color-top"}, label: false %>
+              </div>
+            </div>
+
+          <div class="d-flex align-items-center w-100 input-form-edit">
+              <div class="w-20 pr-3 py-2">
+                <div class="mb-2">Hauteur</div>
+                   <%= f.input :height, input_html: {class: "height-top"}, label: false %>
+                   </div>
+              <div class="w-20 pr-3 py-2">
+                <div class="mb-2">Largeur</div>
+                  <%= f.input :width, input_html: {class: "width-top"}, label: false %>
+              </div>
+              <div class="w-20 py-2">
+                <div class="mb-2">Longueur</div>
+                  <%= f.input :length, input_html: {class: "length-top"},label: false %>
+                 </div>
+               </div>
+          <%= f.submit "valider", class: 'btn btn-flat btn-info' %>
+        <% end %>
+        </div>
 
 
-<div class="model">3D ici</div>
+          <h4>Pieds de table</h4>
+            <div class="form-edit mt-3">
 
-<% if !@copy_piece.nil? %>
-  <%= @copy_piece.parts %>
-<% end %>
+              <%= simple_form_for @part_bottom, url: part_path(@part_bottom), method: :patch do |f| %>
 
-<h4>Caractéristiques du plateau</h4>
-<%= simple_form_for @part_top, url: part_path(@part_top), method: :patch do |f| %>
-  <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-top"} %>
-  <%= f.input :color, collection: Part.colors.keys, input_html: {class: "color-top"} %>
-  <%= f.input :height, input_html: {class: "height-top"} %>
-  <%= f.input :width, input_html: {class: "width-top"} %>
-  <%= f.input :length, input_html: {class: "length-top"} %>
-  <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-top"} %>
-  <%= f.submit "enregistrer mon objet", input_html: {class: 'btn btn-flat'}%>
-<% end %>
+                <div class="d-flex align-items-center w-100 input-form-edit">
+                  <div class="pr-5">Forme</div>
+                    <div class="w-100">
+                      <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-bottom"}, label: false %>
+                    </div>
+                  </div>
+                <div class="d-flex align-items-center w-100 input-form-edit">
+                  <div class="pr-5">Matière</div>
+                    <div class="w-100">
+                      <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-bottom"}, label: false %>
+                    </div>
+                </div>
 
-<h4>Caractéristiques des pieds</h4>
-<%= simple_form_for @part_bottom, url: part_path(@part_bottom), method: :patch do |f| %>
-  <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-bottom"} %>
-  <%= f.input :color, collection: Part.colors.keys, input_html: {class: "color-bottom"} %>
-  <%= f.input :height, input_html: {class: "height-bottom"} %>
-  <%= f.input :width, input_html: {class: "width-bottom"} %>
-  <%= f.input :length, input_html: {class: "length-bottom"} %>
-  <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-bottom"} %>
-  <%= f.submit "enregistrer mon objet", input_html: {class: 'btn btn-flat'}%>
-<% end %>
+                <div class="d-flex align-items-center w-100 input-form-edit">
+                  <div class="pr-5">Couleur</div>
+                    <div class="w-100">
+                      <%= f.input :color, collection: Part.colors.keys, input_html: {class: "color-bottom"}, label: false %>
+                    </div>
+                  </div>
 
-<%#= link_to "Valider mon objet", piece_path(@piece), :class => "btn btn-flat"  %>
-
-<%= simple_form_for @piece do |f| %>
-  <%= f.button :submit, class: "btn btn-flat" %>
-<% end %>
+                <div class="d-flex align-items-center w-100 input-form-edit">
+                    <div class="w-20 pr-3">
+                      <div class="mb-2">Hauteur</div>
+                         <%= f.input :height, input_html: {class: "height-bottom"}, label: false %>
+                         </div>
+                      <div class="w-20 pr-3">
+                        <div class="mb-2">Largeur</div>
+                          <%= f.input :width, input_html: {class: "width-bottom"}, label: false %>
+                      </div>
+                      <div class="w-20">
+                        <div class="mb-2">Longueur</div>
+                          <%= f.input :length, input_html: {class: "length-bottom"},label: false %>
+                         </div>
+                       </div>
+                    <div class="d-flex justify-content-between">
+                    <%= f.submit "valider", class: 'btn btn-flat btn-info'%>
+                    <%= f.submit "enregistrer", class: 'btn btn-primary'%>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+                <%= simple_form_for @piece do |f| %>
+                <%= f.button :submit, class: "btn btn-flat" %>
+              <% end %>
+            </div>
