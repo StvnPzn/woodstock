@@ -11,7 +11,8 @@ const initThree = () => {
       0.1,
       1000
     );
-    camera.position.z = 15;
+
+    camera.position.z = 20;
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x8f8e8e);
 
@@ -24,24 +25,18 @@ const initThree = () => {
       let part = createBottomPart("round", 1, 1, 6, "white");
       arr.push(part);
     }
-    console.log(arr);
+
     let positions = Position(10, 1, 10, 6);
     arr.forEach((bottom, index) => {
       bottom.position.x = positions[index].x;
       bottom.position.y = positions[index].y;
       bottom.position.z = positions[index].z;
-      console.dir(bottom);
     });
 
-    console.log(Position(3, 3, 3));
-    //scene.add(topPart, arr[0], arr[1], arr[2], arr[3]);
-    console.dir(scene);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    console.log(renderer);
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
-    // renderer.render( scene, camera );
-    // topPart.rotation.y = 1000 / 5000;
+
     const group = new THREE.Group();
     group.add(topPart);
     group.add(arr[0], arr[1], arr[2], arr[3]);
@@ -66,7 +61,13 @@ function createTopPart(shape, width, height, length, color) {
   let object = findRightShape(shape, width, height, length);
   console.dir(object);
   let formatColor = findRightColor(color);
-  let material = new THREE.MeshBasicMaterial({ color: formatColor });
+  const texture = new THREE.TextureLoader().load(
+    "https://media.istockphoto.com/photos/wood-texture-background-wood-planks-horizontal-picture-id629075150?k=6&m=629075150&s=170667a&w=0&h=LNqNh6HMwSY0VdTpKLLQKOszhtTw6NYEO0Z3c3y0qHU="
+  );
+  // texture.wrapS = THREE.RepeatWrapping;
+  // texture.wrapT = THREE.RepeatWrapping;
+  // texture.repeat.set(4, 4);
+  let material = new THREE.MeshBasicMaterial({ map: texture });
   let topPart = new THREE.Mesh(object, material);
   console.dir(topPart);
   return topPart;
