@@ -1,32 +1,37 @@
 <div class="container">
+
+  <h1 class="mt-3"><%= @piece.category.title.capitalize %> <small>></small></h1>
   
-    <div class="cont-all">
+    <div class="cont-all mt-3 d-flex justify-content-between">
       <div class="card-img-show">
-        <%= cl_image_tag @piece.photo.key, :width=>480, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+        <%= cl_image_tag @piece.photo.key, :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
       </div>
-      <div class="card-inner">
-        <h3><%= @piece.category.title.capitalize %></h3> 
-        <h4><%= @piece.name.capitalize %></h4>
-          <div class="inner-text"></div>
-          <p><% @piece.parts.each do |part|%>
-            pièces: <%= part.position %>
-            couleurs: <%= part.color %>
-            longueur: <%= part.length %> cm
-            largeur: <%= part.width %> cm
-            hauteur/épaisseur: <%= part.height%> cm
-            matériau: <%= part.material%>
-            forme: <%= part.shape%>
-            <% end %></p>          
-        <button class = "btn btn-primary"><%= link_to "I want that", pieces_path(id: @piece.id), method: :post %></button>
+      <div class="card-inner pl-3 mx-5">
+        <h2 class="pb-2"><%= @piece.name.capitalize %></h2>
+        <div class="inner-desc my-3"><em>Description du produit à venir</em></div>
+          <div class="inner-text d-flex justify-content-around">
+            <div class="mt-3">
+              <p><strong>Plateau :</strong></p>
+              <p><u>Couleur :</u> <%= @top.translated_color %><br>
+                <u>Dimension :</u> <%= @top.length %>x<%= @top.width %>x<%= @top.height %><br>
+                <u>Matériau :</u> <%= @top.translated_material %><br>
+                <u>Forme :</u> <%= @top.translated_shape %></p>
+            </div>
+            <div class="mt-3">
+              <p><strong>Pieds :</strong></p>
+              <p><u>Couleur :</u> <%= @bottom.translated_color %><br>
+                <u>Dimension :</u> <%= @bottom.length %>x<%= @bottom.width %>x<%= @bottom.height %><br>
+                <u>Matériau :</u> <%= @bottom.translated_material %><br>
+                <u>Forme :</u> <%= @bottom.translated_shape %></p>
+            </div>
+          </div>
+          <div class="inner-button d-flex justify-content-center mt-4">
+            <button class = "btn btn-primary px-4"><%= link_to "Partir de ce modèle", pieces_path(id: @piece.id), method: :post %></button>
+          </div>
       </div>
     </div>   
   
 </div>
-        
-    
-
-
-
 
 
 <% if @editable %>
