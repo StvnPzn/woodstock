@@ -83,12 +83,17 @@
 .form-name {
   .btn-flat {
     margin: 0;
-    background: rgba(254, 200, 154, 0.3);
     color: black;
-    border-radius: 9999em;
+    border: none;
+  &:hover{
+    background: #f7ab7e;
+    }
   }
 }
 
+// .btn-flat:hover {
+
+// }
 
 
 
