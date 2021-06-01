@@ -36,6 +36,45 @@ document.addEventListener("turbolinks:load", () => {
   initThree();
   navBar();
   // initSweetalert();
-  const coco = document.querySelector("#coco");
-  console.dir(JSON.parse(coco.dataset.cocoParams));
+  // const coco = document.querySelector(".coco");
+  // console.dir(JSON.parse(coc.dataset.cocoParams));
+
+  // const shapeTop = document.querySelector(".shapeTop");
+  // console.dir(JSON.parse(shapeTop.dataset.shapeTopParams));
+
+  // const materialTop = document.querySelector(".shapeTop");
+  // console.dir(JSON.parse(materialTop.dataset.materialTopParams));
+
+  // const colorTop = document.querySelector(".colorTop");
+  // console.dir(JSON.parse(colorTop.dataset.colorTopParams));
+
+  // const heightTop = document.querySelector(".heightTop");
+  // console.dir(JSON.parse(heightTop.dataset.heightTopParams));
+
+  // const widthTop = document.querySelector(".widthTop");
+  // console.dir(JSON.parse(heightTop.dataset.widthTopParams));
+
+  // const lengthTop = document.querySelector(".lengthTop");
+  // console.dir(JSON.parse(lengthTop.dataset.widthTopParams));
+
+
+
+  // const shapeBottom = document.querySelector(".shapeBottom");
+  // console.dir(JSON.parse(shapeBottom.dataset.shapeBottomParams));
+
+  // const materialBottom = document.querySelector(".materialBottom");
+  // console.dir(JSON.parse(materialBottom.dataset.materialBottomParams));
+
+  // const materialBottom = document.querySelector(".colorBottom");
+  // console.dir(JSON.parse(materialBottom.dataset.colorBottomParams));
+
+  // const heightTop = document.querySelector(".heightBottom");
+  // console.dir(JSON.parse(heightTop.dataset.heightTopParams));
+
+  // const widthBottom = document.querySelector(".widthBottom");
+  // console.dir(JSON.parse(widthBottomTop.dataset.widthBottomParams));
+
+  // const lengthBottom = document.querySelector(".lengthBottom");
+  // console.dir(JSON.parse(lengthBottom.dataset.widthBottomParams));
+
 });
