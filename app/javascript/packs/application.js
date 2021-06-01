@@ -36,4 +36,6 @@ document.addEventListener("turbolinks:load", () => {
   initThree();
   navBar();
   // initSweetalert();
+  const coco = document.querySelector("#coco");
+  console.dir(JSON.parse(coco.dataset.cocoParams));
 });
