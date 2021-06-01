@@ -44,33 +44,34 @@
   background-color: white;
 }
 
-ul {
+.rating-star {
   list-style: none;
   padding: 0 0 0 6px !important;
 }
 
-ul li {
+.rating-star li {
   display: inline;
 }
 
-p {
+.detail-card h2 {
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
 }
 
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.artisan-info p {
+.detail-card p {
   font-size: 16px;
   opacity: .7;
-  // margin: 0;
+  text-align: center;
 }
 
 .fa-star {
   color: rgb(255,195,0);
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.price {
+  font-size: 32px !important;
 }
 
 
