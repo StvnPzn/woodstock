@@ -23,7 +23,7 @@
       <span class="price">350€*</span></h2>
       <p><em>*Sous réserve de modification lors de la validation du devis par l'artisan</em></p>
     <div class="d-flex">
-      <%= link_to "Commander", piece_path, :class => "btn btn-primary mr-3" %>
+      <%= link_to "Commander", piece_orders_path(@piece), method: :post, :class => "btn btn-info mr-3" %>
       <%= link_to "Annuler", piece_path, :class => "btn btn-primary ml-3" %>
     </div>
   </div>
