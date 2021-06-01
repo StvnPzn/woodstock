@@ -4,14 +4,13 @@
 
 <div class="container">
 
-  <% if !@copy_piece.nil? %>
-    <% @copy_piece.parts %>
+  <% if !@piece.nil? %>
+    <% @piece.parts %>
   <% end %>
 
   <div class="row">
     <div class="col-6">
-      <div class="model">
-      </div>
+        <canvas id="coco" data-piece-params="<%= @piece.json_params.to_json %>"></canvas>
     </div>
 
     <div class="col-6 pt-4">
@@ -119,3 +118,6 @@
       </div>
   </div>
 </div>
+
+
+

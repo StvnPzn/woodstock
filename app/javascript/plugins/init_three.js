@@ -1,8 +1,11 @@
 import * as THREE from "three";
 
 const initThree = () => {
-  const check = document.querySelector(".model");
+  const check = document.querySelector("#coco");
+  console.log(check)
 
+  const params = JSON.parse(check.dataset.pieceParams)
+  console.dir(params)
   if (check) {
 
     // Positionnement de la camera et de la scene
@@ -138,15 +141,19 @@ function Position(width, length, height, h) {
     -h / 2 - length / 2,
     height / 2 - height / 10
   );
-  // const a = new THREE.Vector3( (( width / 2 )), -(height / 2) + (height /10), ((length / 2) ) );
-  // const b = new THREE.Vector3( (width / 2), -(height / 2) + (height /10), - ( (length / 2) ) );
-  // const c = new THREE.Vector3(-(width / 2), -(height / 2) + (height /10), - ((length / 2) ) );
-  // const d = new THREE.Vector3(-(width / 2), -(height / 2) + (height /10), (length / 2)  );
+
   return [a, b, c, d];
 }
 
-// const tableParams = {top: {shapeTop: } , bottom: {}, category: }
-// Methode avec ce hash en argument et injecte chacun au bon endroit
+// const tableParams = () => {
+//   const topParams = { shapeTop: "shapeTop", widthTop: "widthTop", lengthTop: "lengthTop", heightTop: "heightTop", materialTop: "materialTop", colorTop: "colorTop" };
+//   const bottomParams = { shapeBottom: "shapeBottom", widthBottom: "widthBottom", lengthBottom: "lengthBottom", heightBottom: "heightBottom", materialBottom: "materialBottom", colorBottom: "colorBottom" };
+//   const category = category;
+// }
+
+// // Methode avec ce hash en argument et injecte chacun au bon endroit
+
+// console.log(topPart);
 
 // const getShapeTop = () => {
 //   let shapeTop = document.querySelector(".shape-top");
@@ -169,8 +176,8 @@ function Position(width, length, height, h) {
 //   });
 // };
 
-// const getHeightTop = () => {
-//   let heightTop = document.querySelector(".height-top");
+// const getcolorTop = () => {
+//   let colorTop = document.querySelector(".color-top");
 //   heightTop.addEventListener("change", (event) => {
 //     return event.currentTarget.selectedOptions[0].innerHTML;
 //   });
@@ -219,7 +226,6 @@ function Position(width, length, height, h) {
 // };
 
 //trying rotation
-
 
 const createPiece = (json_params) => {
   const category = json_params['category']
