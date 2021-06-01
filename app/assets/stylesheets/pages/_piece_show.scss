@@ -39,7 +39,39 @@
 
 .detail-card {
   width: 48%;
-  height: 300px;
+  height: 250px;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.15);
   background-color: white;
 }
+
+.rating-star {
+  list-style: none;
+  padding: 0 0 0 6px !important;
+}
+
+.rating-star li {
+  display: inline;
+}
+
+.detail-card h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.detail-card p {
+  font-size: 16px;
+  opacity: .7;
+  text-align: center;
+}
+
+.fa-star {
+  color: rgb(255,195,0);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.price {
+  font-size: 32px !important;
+}
+
+
