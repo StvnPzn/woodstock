@@ -4,6 +4,8 @@ const initThree = () => {
   const check = document.querySelector(".model");
 
   if (check) {
+
+    // Positionnement de la camera et de la scene
     console.log("je suis ici");
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -15,42 +17,25 @@ const initThree = () => {
     camera.position.z = 20;
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x8f8e8e);
+    const group = new THREE.Group();
 
-    // x, y, z
-    let topPart = createTopPart("square", 10, 1, 10, "blue");
-    console.log(topPart);
-    const arr = [];
-    for (let i = 0; i < 4; i++) {
-      // rayon du haut, rayon du bas, hauteur
-      let part = createBottomPart("round", 1, 1, 6, "white");
-      arr.push(part);
-    }
+    // Construction de la table
+    const topPart = createTopPart("square", 10, 1, 10, "blue");
+    const bottomPart = createBottomPart("round", 1, 1, 6, 10, 1, 10, "white")
+    group.add(topPart, bottomPart);
 
-    let positions = Position(10, 1, 10, 6);
-    arr.forEach((bottom, index) => {
-      bottom.position.x = positions[index].x;
-      bottom.position.y = positions[index].y;
-      bottom.position.z = positions[index].z;
-    });
 
+    // Afficher la piece sur la scene
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
-
-    const group = new THREE.Group();
-    group.add(topPart);
-    group.add(arr[0], arr[1], arr[2], arr[3]);
-
     scene.add(group);
 
     function render(time) {
       time *= 0.0007; // convertis le temps en secondes
-
       // group.rotation.x = time;
       group.rotation.y = time;
-
       renderer.render(scene, camera);
-
       requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
@@ -99,14 +84,29 @@ function findRightColor(color) {
   }
 }
 
-function createBottomPart(shape, width, height, length, color) {
+function createBottomElement(shape, width, height, length, color) {
   let object = findRightShape(shape, width, height, length);
   let texture = findRightColor(color);
   let material = new THREE.MeshBasicMaterial({ map: texture });
-  let bottomPart = new THREE.Mesh(object, material);
-  // BottomPart.position = position(width, length, height);
-  return bottomPart;
+  let bottomElement = new THREE.Mesh(object, material);
+  // BottomElement.position = position(width, length, height);
+  return bottomElement;
 }
+
+function createBottomPart(shape, topRadius, bottomRadius, lengthCylinder, topWidth, topHeight, topLength, color) {
+  const bottomPart = new THREE.Group();
+  let positions = Position(topWidth, topHeight, topLength, lengthCylinder);
+  for (let i = 0; i < 4; i++) {
+    // rayon du haut, rayon du bas, hauteur
+    let element = createBottomElement(shape, topRadius, bottomRadius, lengthCylinder, color);
+    element.position.x = positions[i].x;
+    element.position.y = positions[i].y;
+    element.position.z = positions[i].z;
+    bottomPart.add(element);
+  }
+  return bottomPart
+}
+
 
 function findRightShape(shape, width, height, length) {
   if (shape === "square" || shape === "rectangular") {
@@ -144,6 +144,9 @@ function Position(width, length, height, h) {
   // const d = new THREE.Vector3(-(width / 2), -(height / 2) + (height /10), (length / 2)  );
   return [a, b, c, d];
 }
+
+// const tableParams = {top: {shapeTop: } , bottom: {}, category: }
+// Methode avec ce hash en argument et injecte chacun au bon endroit
 
 // const getShapeTop = () => {
 //   let shapeTop = document.querySelector(".shape-top");
@@ -216,5 +219,18 @@ function Position(width, length, height, h) {
 // };
 
 //trying rotation
+
+
+const createPiece = (json_params) => {
+  const category = json_params['category']
+  if (category === "table") {
+    const tableTop = createTableTop(json_params["top"])
+    const tableBottom = createTableBottom(json_params["bottom"])
+    groupTableParts(tableTop, tableBottom)
+  }
+}
+
+
+
 
 export { initThree };
