@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-between">
+  <div class="detail-card d-flex justify-content-around align-items-center mt-3">
+    <div class="artisan-avatar pl-3">
+      <img src="https://kitt.lewagon.com/placeholder/users/joz84" class="avatar-bordered" />
+    </div>
+    <div class="artisan-info d-flex flex-column justify-content-center align-items-center pr-2">
+      <h2 class="pt-3">Jojo Seraf'</h2>
+      <p><em>" Passioné de bois et du travail manuel, j'aime réaliser des meubles répondant aux attentes des clients "</em></p>
+      <p>Bordeaux - 33000</p>
+      <div class="d-flex"><p>5/5 (27 avis)<ul>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+      </ul></p></div>
+    </div>
+  </div>
+  <div class="detail-card mt-3 d-flex flex-column justify-content-around align-items-center">
+    <p>Le prix estimé de votre objet est de : 350€*</p>
+    <div class="d-flex">
+      <%= link_to "Achat", piece_path, :class => "btn btn-primary mr-3" %>
+      <%= link_to "Annuler", piece_path, :class => "btn btn-primary ml-3" %>
+    </div>
+  </div>
+</div>

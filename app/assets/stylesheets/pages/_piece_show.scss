@@ -39,7 +39,38 @@
 
 .detail-card {
   width: 48%;
-  height: 300px;
+  height: 250px;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.15);
   background-color: white;
 }
+
+ul {
+  list-style: none;
+  padding: 0 0 0 6px !important;
+}
+
+ul li {
+  display: inline;
+}
+
+p {
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.artisan-info p {
+  font-size: 16px;
+  opacity: .7;
+  // margin: 0;
+}
+
+.fa-star {
+  color: rgb(255,195,0);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
