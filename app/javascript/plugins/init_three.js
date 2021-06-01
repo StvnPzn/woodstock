@@ -1,10 +1,10 @@
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const initThree = () => {
   const check = document.querySelector(".model");
 
   if (check) {
-
     // Positionnement de la camera et de la scene
     console.log("je suis ici");
     const camera = new THREE.PerspectiveCamera(
@@ -21,15 +21,23 @@ const initThree = () => {
 
     // Construction de la table
     const topPart = createTopPart("square", 10, 1, 10, "blue");
-    const bottomPart = createBottomPart("round", 1, 1, 6, 10, 1, 10, "white")
+    const bottomPart = createBottomPart("round", 1, 1, 6, 10, 1, 10, "white");
     group.add(topPart, bottomPart);
-
 
     // Afficher la piece sur la scene
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
     scene.add(group);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.maxPolarAngle = Math.PI / 2;
+    controls.minPolarAngle = Math.PI / 3;
+    controls.enableDamping = true;
+    controls.enablePan = false;
+    controls.dampingFactor = 0.1;
+    controls.autoRotate = false; // Toggle this if => table automatically rotate
+    controls.autoRotateSpeed = 0.2; // 30
 
     function render(time) {
       time *= 0.0007; // convertis le temps en secondes
@@ -93,20 +101,34 @@ function createBottomElement(shape, width, height, length, color) {
   return bottomElement;
 }
 
-function createBottomPart(shape, topRadius, bottomRadius, lengthCylinder, topWidth, topHeight, topLength, color) {
+function createBottomPart(
+  shape,
+  topRadius,
+  bottomRadius,
+  lengthCylinder,
+  topWidth,
+  topHeight,
+  topLength,
+  color
+) {
   const bottomPart = new THREE.Group();
   let positions = Position(topWidth, topHeight, topLength, lengthCylinder);
   for (let i = 0; i < 4; i++) {
     // rayon du haut, rayon du bas, hauteur
-    let element = createBottomElement(shape, topRadius, bottomRadius, lengthCylinder, color);
+    let element = createBottomElement(
+      shape,
+      topRadius,
+      bottomRadius,
+      lengthCylinder,
+      color
+    );
     element.position.x = positions[i].x;
     element.position.y = positions[i].y;
     element.position.z = positions[i].z;
     bottomPart.add(element);
   }
-  return bottomPart
+  return bottomPart;
 }
-
 
 function findRightShape(shape, width, height, length) {
   if (shape === "square" || shape === "rectangular") {
@@ -220,17 +242,13 @@ function Position(width, length, height, h) {
 
 //trying rotation
 
-
 const createPiece = (json_params) => {
-  const category = json_params['category']
+  const category = json_params["category"];
   if (category === "table") {
-    const tableTop = createTableTop(json_params["top"])
-    const tableBottom = createTableBottom(json_params["bottom"])
-    groupTableParts(tableTop, tableBottom)
+    const tableTop = createTableTop(json_params["top"]);
+    const tableBottom = createTableBottom(json_params["bottom"]);
+    groupTableParts(tableTop, tableBottom);
   }
-}
-
-
-
+};
 
 export { initThree };
