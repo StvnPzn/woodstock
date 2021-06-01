@@ -44,3 +44,24 @@ html {
   border-color: #fec89a !important;
   color: black !important;
 }
+
+#c {
+  width: 100% !important; /* let our container decide our size */
+  height: 100% !important;
+  display: block;
+}
+
+#container {
+  /* makes this the origin of its children */
+  overflow: hidden;
+}
+
+.form-user {
+  width: 50%;
+}
+
+.fat-container {
+  width: 100%;
+  display: flex;
+  padding-right: 30px;
+}

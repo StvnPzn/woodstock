@@ -2,21 +2,22 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const initThree = () => {
-  const check = document.querySelector(".model");
+  const canvas = document.querySelector("#c");
+  // const params = JSON.parse(canvas.dataset.pieceParams);
+  // console.dir(params);
 
-  if (check) {
+  if (canvas) {
     // Positionnement de la camera et de la scene
-    console.log("je suis ici");
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
-
     camera.position.z = 20;
+
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x8f8e8e);
+    scene.background = new THREE.Color(0xf4f4f4);
     const group = new THREE.Group();
 
     // Construction de la table
@@ -25,9 +26,9 @@ const initThree = () => {
     group.add(topPart, bottomPart);
 
     // Afficher la piece sur la scene
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(window.innerWidth / 2, window.innerHeight);
+    //document.body.appendChild(renderer.domElement);
     scene.add(group);
 
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -36,12 +37,32 @@ const initThree = () => {
     controls.enableDamping = true;
     controls.enablePan = false;
     controls.dampingFactor = 0.1;
-    controls.autoRotate = false; // Toggle this if => table automatically rotate
-    controls.autoRotateSpeed = 0.2; // 30
+    // controls.autoRotate = false; // Toggle this if => table automatically rotate
+    // controls.autoRotateSpeed = 0.2; // 30
+
+    function resizeRendererToDisplaySize(renderer) {
+      const canvas = renderer.domElement;
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      var canvasPixelWidth = canvas.width / window.devicePixelRatio;
+      var canvasPixelHeight = canvas.height / window.devicePixelRatio;
+
+      const needResize =
+        canvasPixelWidth !== width || canvasPixelHeight !== height;
+      if (needResize) {
+        renderer.setSize(width, height, false);
+      }
+      return needResize;
+    }
 
     function render(time) {
       time *= 0.0007; // convertis le temps en secondes
       // group.rotation.x = time;
+      if (resizeRendererToDisplaySize(renderer)) {
+        const canvas = renderer.domElement;
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+      }
       group.rotation.y = time;
       renderer.render(scene, camera);
       requestAnimationFrame(render);
@@ -49,14 +70,6 @@ const initThree = () => {
     requestAnimationFrame(render);
   }
 };
-
-function createTopPart(shape, width, height, length, color) {
-  let object = findRightShape(shape, width, height, length);
-  let texture = findRightColor(color);
-  let material = new THREE.MeshBasicMaterial({ map: texture });
-  let topPart = new THREE.Mesh(object, material);
-  return topPart;
-}
 
 function findRightColor(color) {
   if (color === "raw") {
@@ -90,6 +103,14 @@ function findRightColor(color) {
     );
     return grey;
   }
+}
+
+function createTopPart(shape, width, height, length, color) {
+  let object = findRightShape(shape, width, height, length);
+  let texture = findRightColor(color);
+  let material = new THREE.MeshBasicMaterial({ map: texture });
+  let topPart = new THREE.Mesh(object, material);
+  return topPart;
 }
 
 function createBottomElement(shape, width, height, length, color) {
@@ -134,7 +155,7 @@ function findRightShape(shape, width, height, length) {
   if (shape === "square" || shape === "rectangular") {
     return new THREE.BoxGeometry(width, height, length);
   } else {
-    return new THREE.CylinderGeometry(width, height, length, 32);
+    return new THREE.CylinderGeometry(width, height, length);
   }
 }
 

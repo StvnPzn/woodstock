@@ -2,17 +2,21 @@
   <h2>Mon espace de création</h2>
 </div>
 
-<div class="container">
-
   <% if !@copy_piece.nil? %>
     <%= @copy_piece.parts %>
   <% end %>
 
-  <div class="row">
-      <div class="model col-6">
-      </div>
+<div class="fat-container">
+  <div id="container">
 
-    <div class="col-6 pt-4">
+
+    
+      <canvas id="c"></canvas>
+  </div>
+   
+   <div id="form-user">
+
+    <div class=" pt-4">
       <h4> Nom de l'objet</h4>
         <div class="form-name mb-3">
           <%= simple_form_for @piece do |f| %>
@@ -115,4 +119,5 @@
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
+            
