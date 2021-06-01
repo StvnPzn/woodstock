@@ -52,6 +52,6 @@ class PiecesController < ApplicationController
     @copy_piece = @piece.clone
     @part_top = @copy_piece.parts.find_by(position: 0)
     @part_bottom = @copy_piece.parts.find_by(position: 1)
-    render :edit
+    redirect_to edit_piece_path(@copy_piece)
   end
 end

@@ -8,9 +8,6 @@
 
 <div class="fat-container">
   <div id="container">
-
-
-    
       <canvas id="c"></canvas>
   </div>
    
@@ -73,7 +70,7 @@
 
 
           <h4>Pieds de table</h4>
-            <div class="form-edit mt-3">
+            <div class="form-edit my-3">
 
               <%= simple_form_for @part_bottom, url: part_path(@part_bottom), method: :patch do |f| %>
 
@@ -100,24 +97,36 @@
                 <div class="d-flex align-items-center w-100 input-form-edit">
                     <div class="w-20 pr-3">
                       <div class="mb-2">Hauteur</div>
-                         <%= f.input :height, input_html: {class: "height-bottom"}, label: false %>
-                         </div>
-                      <div class="w-20 pr-3">
-                        <div class="mb-2">Largeur</div>
-                          <%= f.input :width, input_html: {class: "width-bottom"}, label: false %>
-                      </div>
-                      <div class="w-20">
-                        <div class="mb-2">Longueur</div>
-                          <%= f.input :length, input_html: {class: "length-bottom"},label: false %>
-                         </div>
-                       </div>
-                    <div class="d-flex justify-content-between validation">
-                    <%= f.submit "valider", class: 'btn btn-flat btn-info'%>
-                    <%= f.submit "enregistrer", class: 'btn btn-primary'%>
+                        <%= f.input :height, input_html: {class: "height-bottom"}, label: false %>
                     </div>
-                    <% end %>
+                    <div class="w-20 pr-3">
+                      <div class="mb-2">Largeur</div>
+                        <%= f.input :width, input_html: {class: "width-bottom"}, label: false %>
+                      </div>
+                    <div class="w-20">
+                      <div class="mb-2">Longueur</div>
+                        <%= f.input :length, input_html: {class: "length-bottom"},label: false %>
+                      </div>
+                    </div>
+                      <%= f.submit "continuer", class: 'btn btn-flat'%>
+                      <% end %>
                   </div>
+
+          <h4> Nom de l'objet</h4>
+            <div class="form-name mt-3">
+              <%= simple_form_for @piece do |f| %>
+                <div class="name">
+                  <%= f.input :name, label: false %>
                 </div>
               </div>
-              </div>
             
+
+                <div class="d-flex justify-content-between validation">
+                  <%= f.submit "valider", class: "btn-flat btn-info" %>
+                  <%= f.submit "enregistrer", class: 'btn btn-primary'%>
+                </div>
+              <% end %>
+            </div>
+      </div>
+  </div>
+</div>

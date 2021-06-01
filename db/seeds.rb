@@ -41,15 +41,15 @@ table3 = Piece.create!(name: "Jack", user: lisa, category: table, description: "
 file = URI.open("https://ruma-home.com/wp-content/uploads/2018/08/riva-round-table-front.jpg")
 table3.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 
-top_table3 = Part.create!(color: 1, height: 6, width: 60, length: 120, material: 2, shape: 1, position: 0, piece: table3)
-botttom_table3 = Part.create!(color: 1, height: 80, width: 60, length: 0, material: 2, shape: 1, position: 1, piece: table3)
+top_table3 = Part.create!(color: 1, height: 6, width: 60, length: 120, material: 2, shape: 0, position: 0, piece: table3)
+botttom_table3 = Part.create!(color: 0, height: 80, width: 60, length: 0, material: 2, shape: 1, position: 1, piece: table3)
 
 table4 = Piece.create!(name: "Go", user: lisa, category: table, description: "Table en acier et hêtre, réalisée par Florent Byle")
 file = URI.open("https://www.idmarket.com/11659/table-a-manger-phoenix-224-cm-bois-et-noir.jpg")
 table4.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 
 top_table4 = Part.create!(color: 0, height: 10, width: 60, length: 80, material: 4, shape: 1, position: 0, piece: table4)
-botttom_table4 = Part.create!(color: 4, height: 120, width: 60, length: 0, material: 5, shape: 1, position: 1, piece: table4)
+botttom_table4 = Part.create!(color: 0, height: 120, width: 60, length: 0, material: 5, shape: 1, position: 1, piece: table4)
 
 table5 = Piece.create!(name: "Lizzie", user: lisa, category: table, description: "Table en bois verni, réalisée par Antonio Dorno")
 file = URI.open("https://www.piguno.com/workshop49035/wp-content/uploads/2018/02/Aston-coffee-table-1200x900.jpg")
@@ -64,7 +64,7 @@ file = URI.open("https://cdn3.hellin.fr/13441-zoom_default/tables-basses-gigogne
 table6.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 
 top_table6 = Part.create!(color: 2, height: 4, width: 60, length: 180, material: 1, shape: 1, position: 0, piece: table5)
-botttom_table6 = Part.create!(color: 3, height: 100, width: 60, length: 0, material: 5, shape: 2, position: 1, piece: table5)
+botttom_table6 = Part.create!(color: 0, height: 100, width: 60, length: 0, material: 5, shape: 2, position: 1, piece: table5)
 
 
 table7 = Piece.create!(name: "Polo", user: lisa, category: table, description: "Table style scandinave blanche, réalisée par Antonio Dorno")
@@ -79,8 +79,8 @@ table8 = Piece.create!(name: "Coolies", user: lisa, category: table, description
 file = URI.open("https://www.drawer.fr/68155-thickbox_default/2-tables-basses-gigognes-metal-woood-fara.jpg")
 table8.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 
-top_table8 = Part.create!(color: 5, height: 4, width: 60, length: 180, material: 2, shape: 1, position: 0, piece: table5)
-botttom_table8 = Part.create!(color: 2, height: 120, width: 60, length: 0, material: 5, shape: 1, position: 1, piece: table5)
+top_table8 = Part.create!(color: 5, height: 4, width: 60, length: 180, material: 2, shape: 0, position: 0, piece: table5)
+botttom_table8 = Part.create!(color: 0, height: 120, width: 60, length: 0, material: 5, shape: 1, position: 1, piece: table5)
 
 table9 = Piece.create!(name: "Valies", user: lisa, category: table, description: "Tables basses encastrables, réalisée par Florent Byle")
 file = URI.open("https://www.miliboo.com/tables-basses-scandinaves-chene-et-blanc-(lot-de-2)-artik-46727-5e708f6976210_1010_800_0.jpg")
