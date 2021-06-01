@@ -32,3 +32,36 @@ html {
   margin-top: 100px;
 }
 
+//TEST A BIEN RANGER
+.swal2-radio {
+  display: grid !important;
+  text-align: left !important;
+}
+
+.swal2-styled.swal2-confirm {
+  border-radius: 9999em !important;
+  background-color: #fec89a !important;
+  border-color: #fec89a !important;
+  color: black !important;
+}
+
+#c {
+  width: 100% !important; /* let our container decide our size */
+  height: 100% !important;
+  display: block;
+}
+
+#container {
+  /* makes this the origin of its children */
+  overflow: hidden;
+}
+
+.form-user {
+  width: 50%;
+}
+
+.fat-container {
+  width: 100%;
+  display: flex;
+  padding-right: 30px;
+}

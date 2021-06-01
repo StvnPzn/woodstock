@@ -2,18 +2,27 @@
   <h2>Mon espace de création</h2>
 </div>
 
-<div class="container">
-
-  <% if !@piece.nil? %>
-    <% @piece.parts %>
+  <% if !@copy_piece.nil? %>
+    <%= @copy_piece.parts %>
   <% end %>
 
-  <div class="row">
-    <div class="col-6">
-        <canvas id="coco" data-piece-params="<%= @piece.json_params.to_json %>"></canvas>
-    </div>
+<div class="fat-container">
+  <div id="container">
+      <canvas id="c"></canvas>
+  </div>
+   
+   <div id="form-user">
 
-    <div class="col-6 pt-4">
+    <div class=" pt-4">
+      <h4> Nom de l'objet</h4>
+        <div class="form-name mb-3">
+          <%= simple_form_for @piece do |f| %>
+            <div class="name">
+              <%= f.input :name, label: false %>
+            </div>
+              <%= f.submit "continuer", class: "btn btn-flat" %>
+        <% end %>
+      </div>
 
       <h4>Plateau</h4>
       <div class="form-edit mt-3 mb-3">
@@ -109,6 +118,9 @@
                 <div class="name">
                   <%= f.input :name, label: false %>
                 </div>
+              </div>
+            
+
                 <div class="d-flex justify-content-between validation">
                   <%= f.submit "valider", class: "btn-flat btn-info" %>
                   <%= f.submit "enregistrer", class: 'btn btn-primary'%>
@@ -118,6 +130,3 @@
       </div>
   </div>
 </div>
-
-
-
