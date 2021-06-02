@@ -23,7 +23,7 @@ class Piece < ApplicationRecord
         shape: top_part.shape,
         width: top_part.width,
         height: top_part.height,
-        length: 100,
+        length: top_part.length,
         color: top_part.color
       },
       bottomPart: {
