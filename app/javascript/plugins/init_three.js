@@ -3,12 +3,12 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const initThree = () => {
 
-  const canvas = document.querySelector("#c");
-  // const params = JSON.parse(canvas.dataset.pieceParams);
-  // console.dir(params);
-
+const canvas = document.querySelector("#c");
+const params = JSON.parse(canvas.dataset.pieceParams);
+console.dir(params.bottomPart["color"]);
 
   if (canvas) {
+
     // Positionnement de la camera et de la scene
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -23,8 +23,13 @@ const initThree = () => {
     const group = new THREE.Group();
 
     // Construction de la table
-    const topPart = createTopPart("square", 10, 1, 10, "blue");
-    const bottomPart = createBottomPart("round", 1, 1, 6, 10, 1, 10, "white");
+    // const topPart = createTopPart("square", 10, 1, 10, "blue");
+    // const bottomPart = createBottomPart("round", 1, 1, 6, 10, 1, 10, "white");
+    // group.add(topPart, bottomPart);
+
+    const topPart = createTopPart(params.topPart["shape"], params.topPart["width"], params.topPart["height"], params.topPart["length"], params.topPart["color"]);
+    console.dir(topPart)
+    const bottomPart = createBottomPart(params.bottomPart["shape"], params.bottomPart["topRadius"], params.bottomPart["bottomRadius"], params.bottomPart["lengthCylinder"], params.bottomPart["topWidth"], params.bottomPart["topHeight"], params.bottomPart["topLength"], params.bottomPart["color"]);
     group.add(topPart, bottomPart);
 
     // Afficher la piece sur la scene
