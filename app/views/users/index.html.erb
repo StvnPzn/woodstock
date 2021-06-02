@@ -1,35 +1,25 @@
 <div class="text-center border-bottom border-top py-5 bg-white">
   <h2>Toutes mes créations</h2>
 </div>
-<div class="container">
-  <div class="props-list">
-      <div class="row">
-        <% @pieces.each do |piece| %>
-          <div class="col-12">
-            <div class="user-box my-4">
-              <%# <%= cl_image_tag prop.photo.key, height: 300, width: 400, crop: :fill %>
-              <!-- a remplacer avec une image 3D -->
-                <div class="user-card-info">
-                  <h2>Nom: <%= piece.name %></h2>
-                  <div class="user-card-details">
-                    <h3>Type de meuble: <%= piece.category.title %></h3>
-                    <% piece.parts.each do |part|%>
-                      <p>pièces: <%= part.position %>
-                      couleurs: <%= part.color %>
-                      longueur: <%= part.length %> cm
-                      largeur: <%= part.width %> cm
-                      hauteur/épaisseur: <%= part.height%> cm
-                      matériau: <%= part.material%>
-                      forme: <%= part.shape%></p>
-                      <% end %>
-                    <%= link_to "Supprimer", piece_path(piece), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer ce meuble ?" }, :class => "btn btn-outline-danger btn-sm" %>
-                    <%= link_to "Modifier", edit_piece_path(piece), :class => "btn btn-outline-secondary btn-sm" %>
-                  </div>
-                </div>
-            </div>
-          </div>
-        <% end %>
+
+<div class="container d-flex flex-column align-items-center">
+  <% @pieces.each do |piece| %>
+    <div class="card-product mt-3">
+      <% if piece.photo.attached? %>
+        <%= cl_image_tag piece.photo.key, :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+      <% else %>
+        <%= cl_image_tag "m4tbkk", :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+      <% end %>
+      <div class="card-product-infos">
+        <h2><%= piece.name %></h2>
+        <p><strong><%= piece.category.title.capitalize %></strong> - Créée le <%= piece.created_at.day %>/<%= piece.created_at.month %>/<%= piece.created_at.year %></p>
       </div>
+      <%= link_to "Détails", piece_path(piece), class:"btn-details mr-2"%>
+      <% if piece.orders.empty? %>
+        <%= link_to piece_path(piece), method: :delete, data: { confirm: "Êtes-vous sûr de supprimer votre création ?" } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      <% end %>
     </div>
-  </div>
+  <% end %>
 </div>

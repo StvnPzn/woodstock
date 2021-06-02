@@ -6,6 +6,8 @@
       <div class="card-img-show">
         <% if @piece.photo.attached? %>
           <%= cl_image_tag @piece.photo.key, :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+        <% else %>
+          <%= cl_image_tag "m4tbkk", :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
         <% end %>
       </div>
       <div class="card-inner pl-3 mx-5">
@@ -27,9 +29,11 @@
                 <u>Forme :</u> <%= @bottom.translated_shape %></p>
             </div>
           </div>
-          <div class="inner-button d-flex justify-content-center mt-4">
-            <button class = "btn btn-primary px-4"><%= link_to "Partir de ce modèle", pieces_path(id: @piece.id), method: :post %></button>
-          </div>
+            <% if !@editable %>
+              <div class="inner-button d-flex justify-content-center mt-4">
+                <button class = "btn btn-primary px-4"><%= link_to "Partir de ce modèle", pieces_path(id: @piece.id), method: :post %></button>
+              </div>
+            <% end %>
       </div>
     </div>
 
