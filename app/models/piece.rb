@@ -18,12 +18,12 @@ class Piece < ApplicationRecord
     top_part = self.parts.find_by(position: 0)
     bottom_part = self.parts.find_by(position: 1)
     return {
-      category: self.category.title,
+      # category: self.category.title,
       topPart: {
         shape: top_part.shape,
         width: top_part.width,
         height: top_part.height,
-        length: 100,
+        length: top_part.length,
         color: top_part.color
       },
       bottomPart: {

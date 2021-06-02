@@ -9,9 +9,9 @@
 <div class="fat-container">
 
   <div id="container">
-      <canvas id="c"></canvas>
+      <canvas id="c" data-piece-params="<%= @piece.json_params.to_json %>"></canvas>
   </div>
-  
+
   <div id="form-user">
     <h4 class = "pt-4">Plateau</h4>
     <div class="form-edit mt-3 mb-3">
@@ -106,7 +106,7 @@
           <%= f.submit "valider", class: "btn-flat btn-info" %>
           <%= f.submit "enregistrer", class: 'btn btn-primary'%>
         </div>
-      <% end %>  
-    </div>    
+      <% end %>
+    </div>
   </div>
 </div>
