@@ -2,11 +2,9 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const initThree = () => {
-
   const canvas = document.querySelector("#c");
 
   if (canvas) {
-
     const params = JSON.parse(canvas.dataset.pieceParams);
     // console.dir(params.bottomPart["color"]);
     // Positionnement de la camera et de la scene
@@ -16,7 +14,7 @@ const initThree = () => {
       0.1,
       1000
     );
-    camera.position.z = 20;
+    camera.position.z = 200;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xf4f4f4);
@@ -27,14 +25,44 @@ const initThree = () => {
     // const bottomPart = createBottomPart("round", 1, 1, 6, 10, 1, 10, "white");
     // group.add(topPart, bottomPart);
 
-    console.dir(params.category === "table")
+    console.dir(params.category === "table");
     if (params.category === "table") {
-      const topPart = createTopPartTable(params.topPart["shape"], params.topPart["width"], params.topPart["height"], params.topPart["length"], params.topPart["color"]);
-      const bottomPart = createBottomPart(params.bottomPart["shape"], params.bottomPart["topRadius"], params.bottomPart["bottomRadius"], params.bottomPart["lengthCylinder"], params.bottomPart["topWidth"], params.bottomPart["topHeight"], params.bottomPart["topLength"], params.bottomPart["color"]);
+      const topPart = createTopPartTable(
+        params.topPart["shape"],
+        params.topPart["width"],
+        params.topPart["height"],
+        params.topPart["length"],
+        params.topPart["color"]
+      );
+      const bottomPart = createBottomPart(
+        params.bottomPart["shape"],
+        params.bottomPart["topRadius"],
+        params.bottomPart["bottomRadius"],
+        params.bottomPart["lengthCylinder"],
+        params.bottomPart["topWidth"],
+        params.bottomPart["topHeight"],
+        params.bottomPart["topLength"],
+        params.bottomPart["color"]
+      );
       group.add(topPart, bottomPart);
     } else if (params.category === "chaise") {
-      const topPart = createTopPartChair(params.topPart["shape"], params.topPart["width"], params.topPart["height"], params.topPart["length"], params.topPart["color"]);
-      const bottomPart = createBottomPart(params.bottomPart["shape"], params.bottomPart["topRadius"], params.bottomPart["bottomRadius"], params.bottomPart["lengthCylinder"], params.bottomPart["topWidth"], params.bottomPart["topHeight"], params.bottomPart["topLength"], params.bottomPart["color"]);
+      const topPart = createTopPartChair(
+        params.topPart["shape"],
+        params.topPart["width"],
+        params.topPart["height"],
+        params.topPart["length"],
+        params.topPart["color"]
+      );
+      const bottomPart = createBottomPart(
+        params.bottomPart["shape"],
+        params.bottomPart["topRadius"],
+        params.bottomPart["bottomRadius"],
+        params.bottomPart["lengthCylinder"],
+        params.bottomPart["topWidth"],
+        params.bottomPart["topHeight"],
+        params.bottomPart["topLength"],
+        params.bottomPart["color"]
+      );
       group.add(topPart, bottomPart);
     }
 
@@ -45,11 +73,12 @@ const initThree = () => {
     scene.add(group);
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI / 2;
-    controls.minPolarAngle = Math.PI / 3;
-    controls.enableDamping = true;
-    controls.enablePan = false;
-    controls.dampingFactor = 0.1;
+    // controls.maxPolarAngle = Math.PI / 2;
+    // controls.minPolarAngle = Math.PI / 3;
+    // controls.enableDamping = true;
+    // controls.enablePan = false;
+    // controls.dampingFactor = 0.1;
+    // controls.noZoom = true;
     // controls.autoRotate = false; // Toggle this if => table automatically rotate
     // controls.autoRotateSpeed = 0.2; // 30
 
@@ -97,7 +126,7 @@ function findRightColor(color) {
     return white;
   } else if (color === "black") {
     const black = new THREE.TextureLoader().load(
-      "https://images.assetsdelivery.com/compings_v2/prapann/prapann1603/prapann160300128.jpg"
+      "https://us.123rf.com/450wm/spukkato/spukkato1810/spukkato181000163/110030455-top-view-of-black-wood-texture-background-wooden-table-blank-for-design-.jpg?ver=6"
     );
     return black;
   } else if (color === "red") {
@@ -212,27 +241,23 @@ function Position(width, length, height, h) {
   return [a, b, c, d];
 }
 
-
-
-
 // const getShapeTop = () => {
-  // let shapeTop = document.querySelector(".shape-top");
-  // console.dir(shapeTop)
-  // shapeTop.addEventListener("keyup", (event) => {
-  //   let shapeTop = event.currentTarget.selectedOptions[0].innerHTML;
-  // });
-  // console.log(shapeTop)
+// let shapeTop = document.querySelector(".shape-top");
+// console.dir(shapeTop)
+// shapeTop.addEventListener("keyup", (event) => {
+//   let shapeTop = event.currentTarget.selectedOptions[0].innerHTML;
+// });
+// console.log(shapeTop)
 // };
 
-  // fetch("canvas.dataset.pieceParams", {
-  //   method: "POST",
-  //   body: JSON.stringify({ query: event.currentTarget.selectedOptions[0].value })
-  // })
-  //   .then(response => response.json())
-  //   .then((data) => {
-  //     console.log();
-  //   });
-
+// fetch("canvas.dataset.pieceParams", {
+//   method: "POST",
+//   body: JSON.stringify({ query: event.currentTarget.selectedOptions[0].value })
+// })
+//   .then(response => response.json())
+//   .then((data) => {
+//     console.log();
+//   });
 
 // const getWidthTop = () => {
 //   let widthTop = document.querySelector(".width-top");
@@ -308,7 +333,6 @@ const createPiece = (json_params) => {
   }
 };
 
-
 // import { Controller } from "stimulus";
 
 // export default class extends Controller {
@@ -327,8 +351,5 @@ const createPiece = (json_params) => {
 //       });
 //   }
 // }
-
-
-
 
 export { initThree };
