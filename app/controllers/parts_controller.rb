@@ -4,7 +4,7 @@ class PartsController < ApplicationController
   def update
     @part = Part.find(params[:id])
     @part.update(part_params)
-    redirect_to piece_path(editable: true)
+    redirect_to edit_piece_path(@part.piece, editable: true)
   end
 
   private
