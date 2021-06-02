@@ -11,14 +11,13 @@ class Piece < ApplicationRecord
     if category.title == "table" && parts.empty?
       parts.build(piece: self, color: 2, height: 10, width: 100, length: 160, material: 1, shape: 1, position: 0).save
       parts.build(piece: self, color: 2, height: 10, width: 100, length: 160, material: 1, shape: 1, position: 1).save
-    end
   end
 
   def json_params
     top_part = self.parts.find_by(position: 0)
     bottom_part = self.parts.find_by(position: 1)
     return {
-      # category: self.category.title,
+      category: self.category.title,
       topPart: {
         shape: top_part.shape,
         width: top_part.width,

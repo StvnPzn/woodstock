@@ -3,12 +3,12 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const initThree = () => {
 
-const canvas = document.querySelector("#c");
-const params = JSON.parse(canvas.dataset.pieceParams);
-console.dir(params.bottomPart["color"]);
+  const canvas = document.querySelector("#c");
 
   if (canvas) {
 
+    const params = JSON.parse(canvas.dataset.pieceParams);
+    // console.dir(params.bottomPart["color"]);
     // Positionnement de la camera et de la scene
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -27,21 +27,16 @@ console.dir(params.bottomPart["color"]);
     // const bottomPart = createBottomPart("round", 1, 1, 6, 10, 1, 10, "white");
     // group.add(topPart, bottomPart);
 
-    const topPart = createTopPart(params.topPart["shape"], params.topPart["width"], params.topPart["height"], params.topPart["length"], params.topPart["color"]);
-    console.dir(topPart)
-    const bottomPart = createBottomPart(params.bottomPart["shape"], params.bottomPart["topRadius"], params.bottomPart["bottomRadius"], params.bottomPart["lengthCylinder"], params.bottomPart["topWidth"], params.bottomPart["topHeight"], params.bottomPart["topLength"], params.bottomPart["color"]);
-    group.add(topPart, bottomPart);
-
-
-    const getShapeTop = () => {
-    let shapeTop = document.querySelector(".shape-top");
-    shapeTop.addEventListener("change", (event) => {
-    return event.currentTarget.selectedOptions[0].innerHTML;
-    });
-  };
-
-
-
+    console.dir(params.category === "table")
+    if (params.category === "table") {
+      const topPart = createTopPartTable(params.topPart["shape"], params.topPart["width"], params.topPart["height"], params.topPart["length"], params.topPart["color"]);
+      const bottomPart = createBottomPart(params.bottomPart["shape"], params.bottomPart["topRadius"], params.bottomPart["bottomRadius"], params.bottomPart["lengthCylinder"], params.bottomPart["topWidth"], params.bottomPart["topHeight"], params.bottomPart["topLength"], params.bottomPart["color"]);
+      group.add(topPart, bottomPart);
+    } else if (params.category === "chaise") {
+      const topPart = createTopPartChair(params.topPart["shape"], params.topPart["width"], params.topPart["height"], params.topPart["length"], params.topPart["color"]);
+      const bottomPart = createBottomPart(params.bottomPart["shape"], params.bottomPart["topRadius"], params.bottomPart["bottomRadius"], params.bottomPart["lengthCylinder"], params.bottomPart["topWidth"], params.bottomPart["topHeight"], params.bottomPart["topLength"], params.bottomPart["color"]);
+      group.add(topPart, bottomPart);
+    }
 
     // Afficher la piece sur la scene
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
@@ -123,11 +118,25 @@ function findRightColor(color) {
   }
 }
 
-function createTopPart(shape, width, height, length, color) {
+function createTopPartTable(shape, width, height, length, color) {
   let object = findRightShape(shape, width, height, length);
   let texture = findRightColor(color);
   let material = new THREE.MeshBasicMaterial({ map: texture });
   let topPart = new THREE.Mesh(object, material);
+  return topPart;
+}
+
+function createTopPartChair(shape, width, height, length, color) {
+  const topPart = new THREE.Group();
+  let object1 = findRightShape(shape, width, height, length);
+  let object2 = findRightShape(shape, width, length, height);
+  let texture = findRightColor(color);
+  let material = new THREE.MeshBasicMaterial({ map: texture });
+  let chair = new THREE.Mesh(object1, material);
+  let backChair = new THREE.Mesh(object2, material);
+  backChair.position.y = length / 2 + height / 2;
+  backChair.position.z = length / 2 - height / 2;
+  topPart.add(chair, backChair);
   return topPart;
 }
 

@@ -38,7 +38,13 @@ class PiecesController < ApplicationController
     # @part_bottom = @piece.parts.find_by(position: 1)
     # @part_top = @part_top.update
     # @part_bottom = @part_bottom.update
-    redirect_to piece_path(@piece, editable: true)
+    if @piece.update(piece_params)
+      redirect_to piece_path(@piece, editable: true)
+    else
+      @part_top = @piece.parts.find_by(position: 0)
+      @part_bottom = @piece.parts.find_by(position: 1)
+      render :edit
+    end
   end
 
   def destroy
@@ -62,5 +68,9 @@ class PiecesController < ApplicationController
     categories.title ILIKE :query \
     OR orders.progress = 3 \
     "
+  end
+
+  def piece_params
+    params.require(:piece).permit(:name)
   end
 end
