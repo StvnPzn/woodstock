@@ -29,9 +29,11 @@
                 <u>Forme :</u> <%= @bottom.translated_shape %></p>
             </div>
           </div>
-          <div class="inner-button d-flex justify-content-center mt-4">
-            <button class = "btn btn-primary px-4"><%= link_to "Partir de ce modèle", pieces_path(id: @piece.id), method: :post %></button>
-          </div>
+            <% if !@editable %>
+              <div class="inner-button d-flex justify-content-center mt-4">
+                <button class = "btn btn-primary px-4"><%= link_to "Partir de ce modèle", pieces_path(id: @piece.id), method: :post %></button>
+              </div>
+            <% end %>
       </div>
     </div>
 
