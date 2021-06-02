@@ -7,7 +7,6 @@
       <div class="row">
         <% @pieces.each do |piece| %>
           <div class="col-4">
-            <% if piece.orders[0][:progress] == "delivered" %>
               <div class="card card-index my-5 team__link" style="width: 20rem;">
                 <%= cl_image_tag piece.photo.key, class: "card-img-top", :width=>360, :height=>250, :crop=>"fill" %>
                 <div class="card-body team__text">
@@ -15,7 +14,6 @@
                   <p class="text-center pt-2"> <%= piece.description %></p>
                 </div>
               </div>
-            <% end %>
           </div>
         <% end%>
       </div>

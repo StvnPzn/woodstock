@@ -6,6 +6,8 @@
       <div class="card-img-show">
         <% if @piece.photo.attached? %>
           <%= cl_image_tag @piece.photo.key, :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+        <% else %>
+          <%= cl_image_tag "m4tbkk", :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
         <% end %>
       </div>
       <div class="card-inner pl-3 mx-5">

@@ -2,7 +2,7 @@ class PiecesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :edit]
 
   def index
-    @pieces = Piece.joins(:category).where("categories.title ILIKE ?", "#{params[:query]}")
+    @pieces = Piece.joins(:category, :orders).where(sql_query, query: "#{params[:query]}")
   end
 
   def show
@@ -53,5 +53,14 @@ class PiecesController < ApplicationController
     @part_top = @copy_piece.parts.find_by(position: 0)
     @part_bottom = @copy_piece.parts.find_by(position: 1)
     redirect_to edit_piece_path(@copy_piece)
+  end
+
+  private
+
+  def sql_query
+    " \
+    categories.title ILIKE :query \
+    OR orders.progress = 3 \
+    "
   end
 end
