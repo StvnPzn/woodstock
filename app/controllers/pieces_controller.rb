@@ -66,7 +66,7 @@ class PiecesController < ApplicationController
   def sql_query
     " \
     categories.title ILIKE :query \
-    OR orders.progress = 3 \
+    AND orders.progress = 3 \
     "
   end
 

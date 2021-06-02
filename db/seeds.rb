@@ -26,7 +26,7 @@ table1 = Piece.create!(name: "Didi", user: lisa, category: table, description: "
 file = URI.open("https://www.monmeubletendance.com/clients/myhometendance/documents/1280_1024/pr_MA88CA492TABLSXT3I-0ec7fc1c56-43.jpg")
 table1.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table1 = Part.create!(color: 2, height: 10, width: 100, length: 160, material: 1, shape: 2, position: 0, piece: table1)
-bottom_table1 = Part.create!(color: 2, height: 60, width: 10, length: 10, material: 1, shape: 1, position: 1, piece: table1)
+bottom_table1 = Part.create!(color: 2, height: 60, width: 10, length: 60, material: 1, shape: 1, position: 1, piece: table1)
 order1 = Order.create!(user: lisa, progress: 3, piece: table1, price: 800)
 puts "Table 1 ok"
 
@@ -113,8 +113,8 @@ puts "Table 11 ok"
 table12 = Piece.create!(name: "Chiara", user: steven, category: table, description: "Table basse en bois massif, réalisée par ateliers Xavo")
 file = URI.open("https://www.miliboo.com/table-a-manger-design-finition-chene-sauvage-et-metal-bocca-47964-5e81c66b6bfdb_1010_427_0.jpg")
 table12.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
-top_table12 = Part.create!(color: 5, height: 4, width: 60, length: 180, material: 2, shape: 1, position: 0, piece: table12)
-botttom_table12 = Part.create!(color: 2, height: 120, width: 60, length: 0, material: 5, shape: 1, position: 1, piece: table12)
+top_table12 = Part.create!(color: 5, height: 4, width: 60, length: 180, material: 2, shape: 2, position: 0, piece: table12)
+botttom_table12 = Part.create!(color: 2, height: 120, width: 10, length: 30, material: 5, shape: 1, position: 1, piece: table12)
 order12 = Order.create!(user: steven, progress: 3, piece: table12, price: 600)
 puts "Table 12 ok"
 puts "done for tables, parts and orders"
