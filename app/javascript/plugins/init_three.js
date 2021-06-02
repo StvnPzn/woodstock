@@ -32,6 +32,17 @@ console.dir(params.bottomPart["color"]);
     const bottomPart = createBottomPart(params.bottomPart["shape"], params.bottomPart["topRadius"], params.bottomPart["bottomRadius"], params.bottomPart["lengthCylinder"], params.bottomPart["topWidth"], params.bottomPart["topHeight"], params.bottomPart["topLength"], params.bottomPart["color"]);
     group.add(topPart, bottomPart);
 
+
+    const getShapeTop = () => {
+    let shapeTop = document.querySelector(".shape-top");
+    shapeTop.addEventListener("change", (event) => {
+    return event.currentTarget.selectedOptions[0].innerHTML;
+    });
+  };
+
+
+
+
     // Afficher la piece sur la scene
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
     renderer.setSize(window.innerWidth / 2, window.innerHeight);
@@ -192,22 +203,27 @@ function Position(width, length, height, h) {
   return [a, b, c, d];
 }
 
-// const tableParams = () => {
-//   const topParams = { shapeTop: "shapeTop", widthTop: "widthTop", lengthTop: "lengthTop", heightTop: "heightTop", materialTop: "materialTop", colorTop: "colorTop" };
-//   const bottomParams = { shapeBottom: "shapeBottom", widthBottom: "widthBottom", lengthBottom: "lengthBottom", heightBottom: "heightBottom", materialBottom: "materialBottom", colorBottom: "colorBottom" };
-//   const category = category;
-// }
 
-// // Methode avec ce hash en argument et injecte chacun au bon endroit
 
-// console.log(topPart);
 
 // const getShapeTop = () => {
-//   let shapeTop = document.querySelector(".shape-top");
-//   shapeTop.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
+  // let shapeTop = document.querySelector(".shape-top");
+  // console.dir(shapeTop)
+  // shapeTop.addEventListener("keyup", (event) => {
+  //   let shapeTop = event.currentTarget.selectedOptions[0].innerHTML;
+  // });
+  // console.log(shapeTop)
 // };
+
+  // fetch("canvas.dataset.pieceParams", {
+  //   method: "POST",
+  //   body: JSON.stringify({ query: event.currentTarget.selectedOptions[0].value })
+  // })
+  //   .then(response => response.json())
+  //   .then((data) => {
+  //     console.log();
+  //   });
+
 
 // const getWidthTop = () => {
 //   let widthTop = document.querySelector(".width-top");
@@ -282,5 +298,28 @@ const createPiece = (json_params) => {
     groupTableParts(tableTop, tableBottom);
   }
 };
+
+
+// import { Controller } from "stimulus";
+
+// export default class extends Controller {
+//   static targets = [ '<%= @piece.json_params.to_json %>' ];
+
+//   connect() {
+//     setInterval(this.refresh, 5000);
+//   }
+
+//   refresh = () => {
+//     fetch('/edit_piece', { headers: { accept: "application/json" }})
+//       .then(response => response.json())
+//       .then((data) => {
+//         // this.countTarget.innerText = data.restaurants.length;
+//         // Do something
+//       });
+//   }
+// }
+
+
+
 
 export { initThree };
