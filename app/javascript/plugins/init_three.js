@@ -121,7 +121,7 @@ function findRightColor(color) {
     return raw;
   } else if (color === "white") {
     const white = new THREE.TextureLoader().load(
-      "https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/cab63d04-0e41-4830-aef5-5cbecbbc897d"
+      "https://media.istockphoto.com/photos/white-wood-floor-texture-background-picture-id1097185952?k=6&m=1097185952&s=612x612&w=0&h=t_Z-hBblwg6N19Dthnxq-WUP8uz0TlrCYWSXulxABLU="
     );
     return white;
   } else if (color === "black") {
