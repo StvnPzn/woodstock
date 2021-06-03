@@ -13,7 +13,7 @@ class PiecesController < ApplicationController
   end
 
   def create
-    @piece = Piece.new(name: "Choisir un nom")
+    @piece = Piece.new(name: "Votre meuble n°#{current_user.pieces.count}")
     @user = current_user
     @piece.user = @user
     @category = Category.find(params[:category_id]) #Faire le lien entre piece et category grâce à la modal (cf: methode de l'index)
