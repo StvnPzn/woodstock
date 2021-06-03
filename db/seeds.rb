@@ -43,7 +43,7 @@ file = URI.open("https://ruma-home.com/wp-content/uploads/2018/08/riva-round-tab
 table3.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table3 = Part.create!(color: 2, height: 6, width: 60, length: 120, material: 2, shape: 0, position: 0, piece: table3)
 botttom_table3 = Part.create!(color: 0, height: 0, width: 7, length: 60, material: 2, shape: 0, position: 1, piece: table3)
-order3 = Order.create!(user: steven, progress: 3, piece: table3, price: 500)
+order3 = Order.create!(user: flore, progress: 3, piece: table3, price: 500)
 puts "Table 3 ok"
 
 table4 = Piece.create!(name: "Go", user: lisa, category: table, description: "Table en acier et hêtre, réalisée par Florent Byle")
@@ -67,7 +67,7 @@ file = URI.open("https://cdn3.hellin.fr/13441-zoom_default/tables-basses-gigogne
 table6.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table6 = Part.create!(color: 2, height: 4, width: 65, length: 170, material: 1, shape: 2, position: 1, piece: table6)
 botttom_table6 = Part.create!(color: 0, height: 0, width: 2, length: 40, material: 5, shape: 0, position: 0, piece: table6)
-order6 = Order.create!(user: steven, progress: 3, piece: table6, price: 450)
+order6 = Order.create!(user: lisa, progress: 3, piece: table6, price: 450)
 puts "Table 6 ok"
 
 table7 = Piece.create!(name: "Polo", user: lisa, category: table, description: "Table style scandinave blanche, réalisée par Antonio Dorno")
@@ -91,7 +91,7 @@ file = URI.open("https://pictureserver.net/images/pic/b8/01/undef_src_sa_picid_7
 table9.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table9 = Part.create!(color: 3, height: 8, width: 85, length: 180, material: 2, shape: 1, position: 0, piece: table9)
 botttom_table9 = Part.create!(color: 3, height: 0, width: 5, length: 75, material: 5, shape: 0, position: 1, piece: table9)
-order9 = Order.create!(user: steven, progress: 3, piece: table9, price: 750)
+order9 = Order.create!(user: flore, progress: 3, piece: table9, price: 750)
 puts "Table 9 ok"
 
 table10 = Piece.create!(name: "Donna", user: lisa, category: table, description: "Table pieds croisés, réalisée par Kevin Créations")
@@ -115,7 +115,7 @@ file = URI.open("https://www.miliboo.com/table-a-manger-design-finition-chene-sa
 table12.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table12 = Part.create!(color: 6, height: 4, width: 60, length: 180, material: 2, shape: 2, position: 0, piece: table12)
 botttom_table12 = Part.create!(color: 0, height: 120, width: 2, length: 60, material: 5, shape: 0, position: 1, piece: table12)
-order12 = Order.create!(user: steven, progress: 3, piece: table12, price: 600)
+order12 = Order.create!(user: lisa, progress: 3, piece: table12, price: 600)
 puts "Table 12 ok"
 puts "done for tables, parts and orders"
 
