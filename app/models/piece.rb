@@ -11,6 +11,7 @@ class Piece < ApplicationRecord
     if category.title == "table" && parts.empty?
       parts.build(piece: self, color: 2, height: 10, width: 100, length: 160, material: 1, shape: 1, position: 0).save
       parts.build(piece: self, color: 2, height: 10, width: 100, length: 160, material: 1, shape: 1, position: 1).save
+    end
   end
 
   def json_params
@@ -37,5 +38,17 @@ class Piece < ApplicationRecord
       }
     }
   end
+
+  def clone_with_associations
+    new_piece = self.dup
+    self.parts.each do |part|
+      new_part = part.dup
+      new_piece.parts << new_part
+      new_part.save
+    end
+    new_piece.save
+    new_piece
+  end
+
 
 end

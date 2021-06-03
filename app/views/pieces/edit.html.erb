@@ -13,11 +13,12 @@
   </div>
 
   <div id="form-user">
+    <%= link_to "Enregistrer pour plus tard", dashboard_path, class: "btn btn-primary px-4 mt-3 btn-fix-color" %>
     <h4 class = "pt-4">Plateau</h4>
-    <div class="form-edit mt-3 mb-3">
+    <div class="form-edit mt-2 mb-3">
       <%= simple_form_for @part_top, url: part_path(@part_top), method: :patch do |f| %>
         <div class="d-flex align-items-center w-100 input-form-edit">
-          <div class="pr-5">Forme</div>
+          <div class="pr-5">Forme<span class="text-white">s</span></div>
           <div class="w-100">
             <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-top"}, label: false %>
           </div>
@@ -59,7 +60,7 @@
     <div class="form-edit my-3">
       <%= simple_form_for @part_bottom, url: part_path(@part_bottom), method: :patch do |f| %>
         <div class="d-flex align-items-center w-100 input-form-edit">
-          <div class="pr-5">Forme</div>
+          <div class="pr-5">Forme<span class="text-white">s</span></div>
           <div class="w-100">
             <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-bottom"}, label: false %>
           </div>
@@ -104,9 +105,9 @@
         </div>
         <div class="d-flex justify-content-between validation">
           <%= f.submit "valider", class: "btn-flat btn-info" %>
-          <%= f.submit "enregistrer", class: 'btn btn-primary'%>
         </div>
       <% end %>
+
     </div>
   </div>
 </div>

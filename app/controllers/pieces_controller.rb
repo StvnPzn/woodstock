@@ -55,9 +55,10 @@ class PiecesController < ApplicationController
 
   def clone
     @piece = Piece.find(params[:id])
-    @copy_piece = @piece.clone
-    @part_top = @copy_piece.parts.find_by(position: 0)
-    @part_bottom = @copy_piece.parts.find_by(position: 1)
+    @copy_piece = @piece.clone_with_associations
+
+    # @part_top = @copy_piece.parts.find_by(position: 0)
+    # @part_bottom = @copy_piece.parts.find_by(position: 1)
     redirect_to edit_piece_path(@copy_piece)
   end
 

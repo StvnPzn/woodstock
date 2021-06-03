@@ -30,3 +30,13 @@
   opacity: 1;
   color: white;
 }
+
+.btn-fix-color {
+  background-color: white!important;
+  color: #536162;
+
+  &:hover {
+    background-color: rgba(254, 200, 154, 0.3)!important;
+    color: #536162;
+  }
+}
