@@ -12,7 +12,11 @@
       </div>
       <div class="card-inner pl-3 mx-5">
         <h2 class="pb-2"><%= @piece.name.capitalize %></h2>
+        <% if !@editable %>
         <div class="inner-desc my-3"><em><%= @piece.description %></em></div>
+        <% else %>
+        <div class="inner-desc my-3"><em>Caractéristiques de votre table :</em></div>
+        <% end %>
           <div class="inner-text d-flex justify-content-around">
             <div class="mt-3">
               <p><strong>Plateau :</strong></p>
