@@ -3,9 +3,10 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: white;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -19,13 +20,10 @@
   }
 
   .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border: 1px solid #f7ab7e;
+/*  border-top: #999 solid 4px;
     border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
+    border-top-right-radius: 9px;*/
     background-color: white;
     padding: 7px 12% 0;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
@@ -33,11 +31,11 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: grey;
     line-height: 1.5em;
   }
 
-  .rails-default-error-page div.dialog > p {
+  /*.rails-default-error-page div.dialog > p {
     margin: 0 0 1em;
     padding: 1em;
     background-color: #F7F7F7;
@@ -50,7 +48,7 @@
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  }*/
   </style>
 </head>
 
@@ -58,9 +56,10 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>Petit souci technique, rien de grave !</h1>
+      <p>En fait, c'est un souci avec le serveur de notre site, pardon, pardon.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <a href="/" class="btn btn-secondary my-4">Back to home page</a>
   </div>
 </body>
 </html>
