@@ -126,7 +126,7 @@ function findRightColor(color) {
     return white;
   } else if (color === "black") {
     const black = new THREE.TextureLoader().load(
-      "https://us.123rf.com/450wm/spukkato/spukkato1810/spukkato181000163/110030455-top-view-of-black-wood-texture-background-wooden-table-blank-for-design-.jpg?ver=6"
+      "https://media.istockphoto.com/photos/dark-wood-background-picture-id933501774?k=6&m=933501774&s=612x612&w=0&h=nP_45Mtx2FQrA9QH1hpejUQ8KYu09MBCJBhdmHvwf-o="
     );
     return black;
   } else if (color === "red") {
@@ -144,6 +144,11 @@ function findRightColor(color) {
       "https://media.istockphoto.com/photos/shiny-steel-texture-picture-id636123406?k=6&m=636123406&s=170667a&w=0&h=-MMubUSwPoFI85ha7lF7_JKfbmwTEM1fQNdYhY_ViMw="
     );
     return grey;
+  } else if (color === "light") {
+    const light = new THREE.TextureLoader().load(
+      "https://media.istockphoto.com/photos/light-brown-wood-texture-background-picture-id958689614?k=6&m=958689614&s=612x612&w=0&h=-QbErlG9TCdqs-vjr771m4gDTCCZa4SD0Lx5foZ6KAQ="
+    );
+    return light;
   }
 }
 
@@ -240,98 +245,6 @@ function Position(width, length, height, h) {
 
   return [a, b, c, d];
 }
-
-// const getShapeTop = () => {
-// let shapeTop = document.querySelector(".shape-top");
-// console.dir(shapeTop)
-// shapeTop.addEventListener("keyup", (event) => {
-//   let shapeTop = event.currentTarget.selectedOptions[0].innerHTML;
-// });
-// console.log(shapeTop)
-// };
-
-// fetch("canvas.dataset.pieceParams", {
-//   method: "POST",
-//   body: JSON.stringify({ query: event.currentTarget.selectedOptions[0].value })
-// })
-//   .then(response => response.json())
-//   .then((data) => {
-//     console.log();
-//   });
-
-// const getWidthTop = () => {
-//   let widthTop = document.querySelector(".width-top");
-//   widthTop.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-// const getLengthTop = () => {
-//   let lengthTop = document.querySelector(".length-top");
-//   lengthTop.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-// const getcolorTop = () => {
-//   let colorTop = document.querySelector(".color-top");
-//   heightTop.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-// const getMaterialTop = () => {
-//   let materialTop = document.querySelector(".material-top");
-//   materialTop.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-// const getShapeBottom = () => {
-//   let shapeBottom = document.querySelector(".shape-bottom");
-//   shapeBottom.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-// const getWidthBottom = () => {
-//   let widthBottom = document.querySelector(".width-bottom");
-//   widthBottom.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-// const getLengthBottom = () => {
-//   let lengthBottom = document.querySelector(".length-bottom");
-//   lengthBottom.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-// const getHeightBottom = () => {
-//   let heightBottom = document.querySelector(".height-bottom");
-//   heightBottom.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-// const getMaterialBottom = () => {
-//   let materialBottom = document.querySelector(".material-bottom");
-//   materialBottom.addEventListener("change", (event) => {
-//     return event.currentTarget.selectedOptions[0].innerHTML;
-//   });
-// };
-
-//trying rotation
-
-const createPiece = (json_params) => {
-  const category = json_params["category"];
-  if (category === "table") {
-    const tableTop = createTableTop(json_params["top"]);
-    const tableBottom = createTableBottom(json_params["bottom"]);
-    groupTableParts(tableTop, tableBottom);
-  }
-};
 
 // import { Controller } from "stimulus";
 
