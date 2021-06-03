@@ -98,7 +98,7 @@ const initThree = () => {
     }
 
     function render(time) {
-      time *= 0.0007; // convertis le temps en secondes
+      time *= 0.0003; // convertis le temps en secondes
       // group.rotation.x = time;
       if (resizeRendererToDisplaySize(renderer)) {
         const canvas = renderer.domElement;
