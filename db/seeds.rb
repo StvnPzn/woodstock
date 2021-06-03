@@ -38,7 +38,7 @@ botttom_table2 = Part.create!(color: 0, height: 0, width: 5, length: 70, materia
 order2 = Order.create!(user: flore, progress: 3, piece: table2, price: 300)
 puts "Table 2 ok"
 
-table3 = Piece.create!(name: "Jack", user: steven, category: table, description: "Table ronde en hêtre, réalisée par Steevy Pouzy")
+table3 = Piece.create!(name: "Jack", user: flore, category: table, description: "Table ronde en hêtre, réalisée par Steevy Pouzy")
 file = URI.open("https://ruma-home.com/wp-content/uploads/2018/08/riva-round-table-front.jpg")
 table3.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table3 = Part.create!(color: 2, height: 6, width: 60, length: 120, material: 2, shape: 0, position: 0, piece: table3)
@@ -62,7 +62,7 @@ botttom_table5 = Part.create!(color: 6, height: 0, width: 10, length: 70, materi
 order5 = Order.create!(user: flore, progress: 3, piece: table5, price: 800)
 puts "Table 5 ok"
 
-table6 = Piece.create!(name: "Suzy", user: steven, category: table, description: "Table basse, acier et bois, réalisée par Lison Chattely")
+table6 = Piece.create!(name: "Suzy", user: lisa, category: table, description: "Table basse, acier et bois, réalisée par Lison Chattely")
 file = URI.open("https://cdn3.hellin.fr/13441-zoom_default/tables-basses-gigogne-en-bois-et-metal-allen.jpg")
 table6.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table6 = Part.create!(color: 2, height: 4, width: 65, length: 170, material: 1, shape: 2, position: 1, piece: table6)
@@ -86,7 +86,7 @@ botttom_table8 = Part.create!(color: 0, height: 0, width: 2, length: 80, materia
 order8 = Order.create!(user: flore, progress: 3, piece: table8, price: 550)
 puts "Table 8 ok"
 
-table9 = Piece.create!(name: "Valies", user: steven, category: table, description: "Table en bois de chêne rouge foncé, réalisée par Florent Byle")
+table9 = Piece.create!(name: "Valies", user: flore, category: table, description: "Table en bois de chêne rouge foncé, réalisée par Florent Byle")
 file = URI.open("https://pictureserver.net/images/pic/b8/01/undef_src_sa_picid_761346_type_whitesh_image.jpg?ver=8")
 table9.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table9 = Part.create!(color: 3, height: 8, width: 85, length: 180, material: 2, shape: 1, position: 0, piece: table9)
@@ -110,7 +110,7 @@ botttom_table11 = Part.create!(color: 2, height: 120, width: 5, length: 75, mate
 order11 = Order.create!(user: flore, progress: 3, piece: table11, price: 250)
 puts "Table 11 ok"
 
-table12 = Piece.create!(name: "Chiara", user: steven, category: table, description: "Table basse en bois massif, réalisée par ateliers Xavo")
+table12 = Piece.create!(name: "Chiara", user: lisa, category: table, description: "Table basse en bois massif, réalisée par ateliers Xavo")
 file = URI.open("https://www.miliboo.com/table-a-manger-design-finition-chene-sauvage-et-metal-bocca-47964-5e81c66b6bfdb_1010_427_0.jpg")
 table12.photo.attach(io: File.open(file), filename: 'table.jpg', content_type: 'image/jpg')
 top_table12 = Part.create!(color: 6, height: 4, width: 60, length: 180, material: 2, shape: 2, position: 0, piece: table12)
