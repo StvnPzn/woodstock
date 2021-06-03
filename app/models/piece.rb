@@ -10,9 +10,9 @@ class Piece < ApplicationRecord
   def create_parts
     if category.title == "table" && parts.empty?
       parts.build(piece: self, color: 2, height: 10, width: 100, length: 160, material: 1, shape: 1, position: 0).save
-      parts.build(piece: self, color: 2, height: 10, width: 100, length: 160, material: 1, shape: 1, position: 1).save
-    end
+      parts.build(piece: self, color: 1, height: 10, width: 10, length: 60, material: 2, shape: 0, position: 1).save
   end
+end
 
   def json_params
     top_part = self.parts.find_by(position: 0)

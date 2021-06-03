@@ -25,13 +25,6 @@
         </div>
 
         <div class="d-flex align-items-center w-100 input-form-edit">
-          <div class="pr-5">Matière</div>
-          <div class="w-100">
-            <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-top"}, label: false %>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-center w-100 input-form-edit">
           <div class="pr-5">Couleur</div>
           <div class="w-100">
             <%= f.input :color, collection: Part.colors.keys, input_html: {class: "color-top"}, label: false %>
@@ -40,7 +33,7 @@
 
         <div class="d-flex align-items-center w-100 input-form-edit">
           <div class="w-20 pr-3 py-2">
-            <div class="mb-2">Hauteur</div>
+            <div class="mb-2">Epaisseur</div>
             <%= f.input :height, input_html: {class: "height-top"}, label: false %>
           </div>
           <div class="w-20 pr-3 py-2">
@@ -65,12 +58,7 @@
             <%= f.input :shape, collection: Part.shapes.keys, input_html: {class: "shape-bottom"}, label: false %>
           </div>
         </div>
-        <div class="d-flex align-items-center w-100 input-form-edit">
-          <div class="pr-5">Matière</div>
-          <div class="w-100">
-            <%= f.input :material, collection: Part.materials.keys, input_html: {class: "material-bottom"}, label: false %>
-          </div>
-        </div>
+        
 
         <div class="d-flex align-items-center w-100 input-form-edit">
           <div class="pr-5">Couleur</div>
@@ -80,12 +68,12 @@
         </div>
 
         <div class="d-flex align-items-center w-100 input-form-edit">
-          <div class="w-20 pr-3">
+          <%# <div class="w-20 pr-3">
             <div class="mb-2">Hauteur</div>
             <%= f.input :height, input_html: {class: "height-bottom"}, label: false %>
-          </div>
+          <%# </div> %>
           <div class="w-20 pr-3">
-            <div class="mb-2">Largeur</div>
+            <div class="mb-2">Diamètre</div>
             <%= f.input :width, input_html: {class: "width-bottom"}, label: false %>
           </div>
           <div class="w-20">
