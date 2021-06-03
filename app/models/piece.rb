@@ -39,4 +39,16 @@ end
     }
   end
 
+  def clone_with_associations
+    new_piece = self.dup
+    self.parts.each do |part|
+      new_part = part.dup
+      new_piece.parts << new_part
+      new_part.save
+    end
+    new_piece.save
+    new_piece
+  end
+
+
 end
