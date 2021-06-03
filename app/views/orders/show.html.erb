@@ -11,12 +11,12 @@
   <div class="cont-all mt-3 d-flex justify-content-between">
     <div class="card-img-show">
       <% if @order.piece.photo.attached? %>
-        <%= cl_image_tag @piece.photo.key, :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
+        <%= cl_image_tag @order.piece.photo.key, :width=>500, :height=>350, :crop=>"fill", class: "card-img-top zoom"%>
       <% end %>
     </div>
     <div class="card-inner pl-3 mx-5">
       <h2 class="pb-2"><%= @order.piece.name.capitalize %></h2>
-      <div class="inner-desc my-3"><em><%= @order.piece.description %></em></div>
+      <div class="inner-desc my-3"><em>Récapitulatif des XXX :</em></div>
         <div class="inner-text d-flex justify-content-around">
           <div class="mt-3">
             <p><strong>Plateau :</strong></p>
