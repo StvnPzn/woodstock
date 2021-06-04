@@ -2,7 +2,7 @@
   <h2>Toutes mes créations</h2>
 </div>
 
-<div class="container d-flex flex-column align-items-center">
+<div class="container d-flex flex-column align-items-center bidouille">
   <% @pieces.each do |piece| %>
     <div class="card-product mt-3">
       <% if piece.photo.attached? %>
@@ -23,3 +23,7 @@
     </div>
   <% end %>
 </div>
+
+<% content_for :footer do %>
+      <%= render 'shared/footer_dashboard' %>
+ <% end %>
