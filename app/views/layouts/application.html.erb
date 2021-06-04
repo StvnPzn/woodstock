@@ -33,10 +33,10 @@
 
     <%= yield %>
 
-    <%# AU CHOIX CA OU CI-DESSUS RENDER 'SHARED/FLASHES' QUI EST DEJA CUSTOMISE 
-
-    <p class="notice"><%= notice %></p>
-    <%# <p class="alert"><%= alert %></p>
+    <% if content_for?(:footer) %>
+      <%= yield :footer %>
+    <% else %>
     <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>
